@@ -5,8 +5,21 @@
 
 package main
 
-import "github.com/sixafter/nanoid-cli/cmd"
+import (
+	"fmt"
+	"os"
+
+	"github.com/sixafter/nanoid-cli/cmd"
+)
+
+// run is the main entry point for the CLI, allowing it to be tested without os.Exit.
+func run() error {
+	return cmd.Execute()
+}
 
 func main() {
-	cmd.Execute()
+	if err := run(); err != nil {
+		_, _ = fmt.Fprintf(os.Stderr, "Error: %v\n", err)
+		os.Exit(1)
+	}
 }

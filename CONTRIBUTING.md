@@ -73,8 +73,8 @@ Fork the repository to your GitHub account by clicking the **Fork** button at th
 Clone the forked repository to your local machine:
 
 ```bash
-git clone https://github.com/sixafter/nanoid.git
-cd nanoid
+git clone https://github.com/sixafter/nanoid-cli.git
+cd nanoid-cli
 ```
 
 #### 3. Create a New Branch
@@ -130,13 +130,6 @@ Adhering to consistent coding standards ensures the codebase remains clean, read
 
 ---
 
-## 🔒 Security Considerations
-
-* **Randomness**: Ensure that all randomness sources use cryptographically secure methods (crypto/rand). 
-* **Data Sanitization**: Avoid exposing sensitive data through IDs or logs.
-
----
-
 ## 🚀 Pull Request Process
 
 Follow these steps to create a successful pull request (PR):
@@ -161,6 +154,6 @@ Follow these steps to create a successful pull request (PR):
 
 ## 🙏 Thank You!
 
-We appreciate your interest in contributing to NanoID for Go! Your efforts help improve the project and support the community. If you have any questions or need assistance, feel free to reach out by opening an issue or contacting the maintainers.
+We appreciate your interest in contributing to NanoID CLI for Go! Your efforts help improve the project and support the community. If you have any questions or need assistance, feel free to reach out by opening an issue or contacting the maintainers.
 
 Happy coding! 🎉

@@ -25,7 +25,7 @@ all: clean test
 
 .PHONY: build
 build: ## Build the binary executable.
-	./scripts/go-build.sh
+	@./scripts/go-build.sh
 
 .PHONY: deps
 deps: ## Get the dependencies and vendor
@@ -43,7 +43,7 @@ bench: ## Execute benchmark tests
 .PHONY: clean
 clean: ## Remove previous build
 	$(GO_CLEAN)
-	rm "${BINARY_NAME}"
+	rm -f "${BINARY_NAME}"
 
 .PHONY: cover
 cover: ## Generate global code coverage report
