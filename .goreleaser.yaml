@@ -80,6 +80,7 @@ changelog:
 builds:
   - main: main.go
     binary: nanoid
+    ldflags: -s -w -X github.com/sixafter/nanoid-cli/cmd/version.version={{ .Version }} github.com/sixafter/nanoid-cli/cmd/version.gitCommitID={{ .Env.X_BUILD_COMMIT }}
     goos:
       - linux
       - darwin
@@ -89,7 +90,6 @@ builds:
       - arm64
     flags:
       - -trimpath
-      - -ldflags=-s -w -X github.com/sixafter/nanoid-cli/cmd/version.version={{ .Version }} github.com/sixafter/nanoid-cli/cmd/version.gitCommitID={{ .Env.X_BUILD_COMMIT }}
 archives:
   - id: tar
     format: tar.gz
@@ -110,7 +110,7 @@ release:
   footer: |
     **Full Changelog**: [https://github.com/sixafter/nanoid-cli/tree/main/CHANGELOG/CHANGELOG-1.x](https://github.com/sixafter/nanoid-cli/tree/main/CHANGELOG/CHANGELOG-1.x.md)
 
-# .goreleaser.yaml
+# Ref: https://goreleaser.com/customization/homebrew/
 brews:
   # Name of the recipe
   - name: nanoid
