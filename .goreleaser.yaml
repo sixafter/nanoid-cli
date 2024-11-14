@@ -74,9 +74,7 @@ changelog:
     - title: Others
       order: 999
 
-#sboms:
-#  - artifacts: archive
-
+# Ref: https://goreleaser.com/customization/builds/
 builds:
   # You can have multiple builds defined as a yaml list
   - # Path to main.go file or main package.
@@ -114,7 +112,6 @@ builds:
     goarch:
       - '386'
       - 'amd64'
-      - 'arm'
       - 'arm64'
 
     # GOAMD64 to build when GOARCH is amd64.
@@ -125,9 +122,7 @@ builds:
     #   https://go.dev/wiki/MinimumRequirements#amd64
     # Default: [ 'v1' ].
     goamd64:
-      - 'v2'
-      - 'v3'
-      - 'v4'
+      - 'v1'
 
     # Set a specific go binary to use when building.
     # It is safe to ignore this option in most cases.
@@ -200,11 +195,23 @@ archives:
       - README.md
       - CHANGELOG/CHANGELOG*
 
+# Ref: https://goreleaser.com/customization/release/
 release:
+  # Repo in which the release will be created.
+  # Default: extracted from the origin remote URL or empty if its private hosted.
   github:
     owner: sixafter
     name: nanoid-cli
+
+  # You can change the name of the release.
+  #
+  # Default: '{{.Tag}}' ('{{.PrefixedTag}}' on Pro).
+  # Templates: allowed.
   name_template: 'v{{ .Version }}'
+
+  # Footer for the release body.
+  #
+  # Templates: allowed.
   footer: |
     **Full Changelog**: [https://github.com/sixafter/nanoid-cli/tree/main/CHANGELOG/CHANGELOG-1.x](https://github.com/sixafter/nanoid-cli/tree/main/CHANGELOG/CHANGELOG-1.x.md)
 
@@ -218,8 +225,8 @@ brews:
 
     # IDs of the archives to use.
     # Empty means all IDs.
-    ids:
-      - tar
+    # ids:
+    #  - tar
 
     # GOARM to specify which 32-bit arm version to use if there are multiple
     # versions from the build section. Brew formulas support only one 32-bit
@@ -232,7 +239,7 @@ brews:
     # versions from the build section.
     #
     # Default: v1.
-    goamd64: v1
+    # goamd64: v1
 
     # Templates: allowed.
     commit_msg_template: "Brew formula update for {{ .ProjectName }} version {{ .Tag }}"
