@@ -67,7 +67,7 @@ mJzY8fK3Lq7B9sR2dT4hV5nG1aC0eX
 Generate a Nano ID with a Custom Alphabet:
 
 ```sh
-./nanoid generate --alphabet "abcdef123456"
+nanoid generate --alphabet "abcdef123456"
 ```
 
 Output:
