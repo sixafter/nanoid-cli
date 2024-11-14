@@ -143,7 +143,7 @@ brews:
     # Directory inside the repository to put the formula.
     directory: Formula
 
-    homepage: "https://sixafter.com/"
+    homepage: "https://github.com/sixafter/homebrew-nanoid-cli/"
 
     description: "A simple, fast, and concurrent command-line tool for generating secure, URL-friendly unique string IDs using the NanoID Go implementation."
 
