@@ -16,6 +16,28 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Security
 
 ---
+## [1.1.0] - 2024-OCT-24
+
+### Added
+### Changed
+- **DEBT:** Upgraded to [sixafter/nanoid@v1.17.3](https://github.com/sixafter/nanoid/releases/tag/v1.17.3).
+### Deprecated
+### Removed
+### Fixed
+### Security
+
+---
+## [1.0.1] - 2024-OCT-24
+
+### Added
+- **FEATURE:** Added support for Homebrew.
+### Changed
+### Deprecated
+### Removed
+### Fixed
+### Security
+
+---
 ## [1.0.0] - 2024-OCT-24
 
 ### Added
@@ -26,7 +48,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Fixed
 ### Security
 
-[Unreleased]: https://github.com/sixafter/nanoid-cli/compare/v1.0.0..HEAD
+[Unreleased]: https://github.com/sixafter/nanoid-cli/compare/v1.1.0..HEAD
+[1.1.0]: https://github.com/sixafter/nanoid-cli/compare/v1.0.1...v1.1.0
+[1.0.1]: https://github.com/sixafter/nanoid-cli/compare/v1.0.0...v1.0.1
 [1.0.0]: https://github.com/sixafter/nanoid-cli/compare/a6a1eb74b61e518fd0216a17dfe5c9b4c432e6e8...v1.0.0
 
 [MUST]: https://datatracker.ietf.org/doc/html/rfc2119
