@@ -164,8 +164,10 @@ brews:
       #
       # Default: default repository branch.
       # Templates: allowed.
+      # Example: "{{.ProjectName}}-{{.Version}}"
       # branch: main
-      branch: "{{.ProjectName}}-{{.Version}}"
+      branch: main
+
       pull_request:
         enabled: true
         base:
