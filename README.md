@@ -34,7 +34,7 @@ This command compiles the main.go file and produces an executable named `nanoid`
 ### Homebrew
 
 ```sh
-brew tap sixafter/nanoid
+brew tap sixafter/tap
 brew install nanoid
 ```
 
