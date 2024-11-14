@@ -170,7 +170,7 @@ brews:
         enabled: true
         base:
           owner: sixafter
-          name: homebrew-nanoid-cli
+          name: homebrew-tap
           branch: main
 
       # Optionally a token can be provided, if it differs from the token
