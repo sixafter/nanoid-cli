@@ -17,7 +17,6 @@ var (
 	idLength int
 	alphabet string
 	count    int
-	output   string
 	verbose  bool
 )
 
