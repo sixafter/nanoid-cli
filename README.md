@@ -3,6 +3,14 @@
 A simple, fast, and concurrent command-line tool for generating secure, URL-friendly unique string IDs 
 using the [NanoID](https://github.com/sixafter/nanoid) Go implementation.
 
+[![CI](https://github.com/sixafter/nanoid-cli/workflows/ci/badge.svg)](https://github.com/sixafter/nanoid-cli/actions)
+[![Go](https://img.shields.io/github/go-mod/go-version/sixafter/nanoid-cli)](https://img.shields.io/github/go-mod/go-version/sixafter/nanoid-cli)
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=six-after_nano-id-cli&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=six-after_nano-id-cli)
+[![GitHub issues](https://img.shields.io/github/issues/sixafter/nanoid-cli)](https://github.com/sixafter/nanoid-cli/issues)
+[![Go Reference](https://pkg.go.dev/badge/github.com/sixafter/nanoid-cli.svg)](https://pkg.go.dev/github.com/sixafter/nanoid-cli)
+[![Go Report Card](https://goreportcard.com/badge/github.com/sixafter/nanoid-cli)](https://goreportcard.com/report/github.com/sixafter/nanoid-cli)
+[![License: Apache 2.0](https://img.shields.io/badge/license-Apache%202.0-blue?style=flat-square)](LICENSE)
+
 ## Features
 
 - **Customizable Length**: Specify the length of the generated Nano ID.
