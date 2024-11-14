@@ -158,7 +158,7 @@ brews:
       # Repository name.
       #
       # Templates: allowed.
-      name: homebrew-nanoid-cli
+      name: homebrew-tap
 
       # Optionally a branch can be provided.
       #
