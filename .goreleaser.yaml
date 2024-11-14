@@ -96,6 +96,13 @@ builds:
     ldflags:
       - -s -w -X github.com/sixafter/nanoid-cli/cmd/version.version={{ .Version }} -X github.com/sixafter/nanoid-cli/cmd/version.gitCommitID={{ .Env.X_BUILD_COMMIT }}
 
+    # Set the modified timestamp on the output binary, typically
+    # you would do this to ensure a build was reproducible.
+    # Pass an empty string to skip modifying the output.
+    #
+    # Templates: allowed.
+    mod_timestamp: "{{ .CommitTimestamp }}"
+
     # GOOS list to build for.
     # For more info refer to: https://go.dev/doc/install/source#environment
     #
@@ -110,7 +117,6 @@ builds:
     #
     # Default: [ '386', 'amd64', 'arm64' ].
     goarch:
-      - '386'
       - 'amd64'
       - 'arm64'
 
@@ -124,12 +130,23 @@ builds:
     goamd64:
       - 'v1'
 
+    # GOARM to specify which 32-bit arm version to use if there are multiple
+    # versions from the build section. Brew formulas support only one 32-bit
+    # version.
+    #
+    # Default: 6.
+    goarm:
+      - '7'
+
     # Set a specific go binary to use when building.
     # It is safe to ignore this option in most cases.
     #
     # Default: "go".
     # Templates: allowed.
     # gobinary: "go1.23.3"
+
+    flags:
+      - -trimpath
 
 # Ref: https://goreleaser.com/customization/archive/
 archives:
@@ -233,19 +250,18 @@ brews:
     # version.
     #
     # Default: 6.
-    goarm: "7"
+    goarm: '7'
 
-    # GOAMD64 to specify which amd64 version to use if there are multiple
-    # versions from the build section.
-    #
-    # Default: v1.
-    # goamd64: v1
+    # IDs of the archives to use.
+    # Empty means all IDs.
+    ids:
+      - tar
 
     # Templates: allowed.
     commit_msg_template: "Brew formula update for {{ .ProjectName }} version {{ .Tag }}"
 
     # URL which is determined by the given Token (github, gitlab or gitea).
-    url_template: "https://github.com/sixafter/nanoid-cli/releases/download/{{ .Tag }}/{{ .ArtifactName }}"
+    # url_template: "https://github.com/sixafter/nanoid-cli/releases/download/{{ .Tag }}/{{ .ArtifactName }}"
 
     # Directory inside the repository to put the formula.
     directory: Formula
@@ -258,6 +274,7 @@ brews:
 
     # Template: allowed
     test: |
+      system "#{bin}/nanoid version"
       assert_match "version", shell_output("#{bin}/nanoid --version")
 
     # Repository to push the generated files to.
@@ -302,13 +319,3 @@ brews:
           owner: sixafter
           name: homebrew-tap
           branch: main
-
-upx:
-  - # Whether to enable it or not.
-    #
-    # Templates: allowed.
-    enabled: false
-
-    # Compress argument.
-    # Valid options are from '1' (faster) to '9' (better), and 'best'.
-    compress: best
