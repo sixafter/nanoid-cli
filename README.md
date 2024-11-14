@@ -76,13 +76,13 @@ Output:
 1a2b3c4d5e6f1a2b3c4d5e6f1a2b3c4
 ```
 
-Generate Multiple Nano IDs and Save to a File:
+Generate Multiple Nano IDs:
 
 ```sh
-nanoid generate --count 5 --output ids.txt
+nanoid generate --count 5
 ```
 
-Contents of `ids.txt`:
+Output:
 
 ```sh
 V1StGXR8_Z5jdHi6B-myT
