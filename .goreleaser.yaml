@@ -74,8 +74,8 @@ changelog:
     - title: Others
       order: 999
 
-sboms:
-  - artifacts: archive
+#sboms:
+#  - artifacts: archive
 
 builds:
   - main: main.go
@@ -89,9 +89,7 @@ builds:
       - arm64
     flags:
       - -trimpath
-      - -ldflags=-s -w \
-        -X github.com/sixafter/nanoid-cli/cmd.version={{ .Version }} \
-        -X github.com/sixafter/nanoid-cli/cmd.buildCommit={{ .Env.X_BUILD_COMMIT }}
+      - -ldflags=-s -w -X github.com/sixafter/nanoid-cli/cmd.version={{ .Version }} github.com/sixafter/nanoid-cli/cmd.buildCommit={{ .Env.X_BUILD_COMMIT }}
 archives:
   - id: tar
     format: tar.gz
