@@ -110,3 +110,72 @@ release:
   footer: |
     **Full Changelog**: [https://github.com/sixafter/nanoid-cli/tree/main/CHANGELOG/CHANGELOG-1.x](https://github.com/sixafter/nanoid-cli/tree/main/CHANGELOG/CHANGELOG-1.x.md)
 
+# .goreleaser.yaml
+brews:
+  # Name of the recipe
+  - name: nanoid
+
+    #alternative_names:
+    #  - "nanoid@{{ .Major }}.{{ .Minor }}"
+
+    # IDs of the archives to use.
+    # Empty means all IDs.
+    ids:
+      - tar
+      - zip
+
+    # GOARM to specify which 32-bit arm version to use if there are multiple
+    # versions from the build section. Brew formulas support only one 32-bit
+    # version.
+    #
+    # Default: 6.
+    goarm: "7"
+
+    # GOAMD64 to specify which amd64 version to use if there are multiple
+    # versions from the build section.
+    #
+    # Default: v1.
+    goamd64: v1
+
+    # URL which is determined by the given Token (github, gitlab or gitea).
+    url_template: "https://github.com/sixafter/nanoid-cli/releases/{{ .Tag }}/{{ .ArtifactName }}"
+
+    # Directory inside the repository to put the formula.
+    directory: Formula
+
+    homepage: "https://github.com/sixafter/homebrew-nanoid-cli/"
+
+    description: "A simple, fast, and concurrent command-line tool for generating secure, URL-friendly unique string IDs using the NanoID Go implementation."
+
+    license: "Apache 2.0"
+
+    # Repository to push the generated files to.
+    repository:
+      # Repository owner.
+      #
+      # Templates: allowed.
+      owner: sixafter
+
+      # Repository name.
+      #
+      # Templates: allowed.
+      name: homebrew-nanoid-cli
+
+      # Optionally a branch can be provided.
+      #
+      # Default: default repository branch.
+      # Templates: allowed.
+      # branch: main
+      branch: "{{.ProjectName}}-{{.Version}}"
+      pull_request:
+        enabled: true
+        base:
+          owner: sixafter
+          name: homebrew-nanoid-cli
+          branch: main
+
+      # Optionally a token can be provided, if it differs from the token
+      # provided to GoReleaser
+      #
+      # Templates: allowed.
+      token: "{{ .Env.GHCR_TOKEN }}"
