@@ -112,12 +112,11 @@ release:
 
 # .goreleaser.yaml
 brews:
-  -
-    # Name of the recipe
-    #
-    # Default: the project name.
-    # Templates: allowed.
-    name: nanoid
+  # Name of the recipe
+  - name: nanoid
+
+    #alternative_names:
+    #  - "nanoid@{{ .Major }}.{{ .Minor }}"
 
     # IDs of the archives to use.
     # Empty means all IDs.
@@ -166,7 +165,14 @@ brews:
       #
       # Default: default repository branch.
       # Templates: allowed.
-      branch: main
+      # branch: main
+      branch: "{{.ProjectName}}-{{.Version}}"
+      pull_request:
+        enabled: true
+        base:
+          owner: sixafter
+          name: homebrew-nanoid-cli
+          branch: main
 
       # Optionally a token can be provided, if it differs from the token
       # provided to GoReleaser
