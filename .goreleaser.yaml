@@ -136,17 +136,69 @@ builds:
     # Templates: allowed.
     # gobinary: "go1.23.3"
 
+# Ref: https://goreleaser.com/customization/archive/
 archives:
   - id: tar
+
+    # Archive format.
+    #
+    # If format is `binary`, no archives are created and the binaries are instead
+    # uploaded directly.
+    #
+    # Valid options are:
+    # - `tar.gz`
+    # - `tgz`
+    # - `tar.xz`
+    # - `txz`
+    # - `tar.zst`
+    # - `tzst` (since v2.1)
+    # - `tar`
+    # - `gz`
+    # - `zip`
+    # - `binary`
+    #
+    # Default: 'tar.gz'.
     format: tar.gz
-    name_template: "{{ .ProjectName }}_{{ .Version }}_{{ .Os }}_{{ .Arch }}"
+
+    # Additional files/globs you want to add to the archive.
+    #
+    # Default: [ 'LICENSE*', 'README*', 'CHANGELOG', 'license*', 'readme*', 'changelog'].
+    # Templates: allowed.
     files:
       - LICENSE
+      - README.md
+      - CHANGELOG/CHANGELOG*
+
   - id: zip
+
+    # Archive format.
+    #
+    # If format is `binary`, no archives are created and the binaries are instead
+    # uploaded directly.
+    #
+    # Valid options are:
+    # - `tar.gz`
+    # - `tgz`
+    # - `tar.xz`
+    # - `txz`
+    # - `tar.zst`
+    # - `tzst` (since v2.1)
+    # - `tar`
+    # - `gz`
+    # - `zip`
+    # - `binary`
+    #
+    # Default: 'tar.gz'.
     format: zip
-    name_template: "{{ .ProjectName }}_{{ .Version }}_{{ .Os }}_{{ .Arch }}"
+
+    # Additional files/globs you want to add to the archive.
+    #
+    # Default: [ 'LICENSE*', 'README*', 'CHANGELOG', 'license*', 'readme*', 'changelog'].
+    # Templates: allowed.
     files:
       - LICENSE
+      - README.md
+      - CHANGELOG/CHANGELOG*
 
 release:
   github:
@@ -243,3 +295,13 @@ brews:
           owner: sixafter
           name: homebrew-tap
           branch: main
+
+upx:
+  - # Whether to enable it or not.
+    #
+    # Templates: allowed.
+    enabled: false
+
+    # Compress argument.
+    # Valid options are from '1' (faster) to '9' (better), and 'best'.
+    compress: best
