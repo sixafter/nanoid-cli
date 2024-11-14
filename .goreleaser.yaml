@@ -78,18 +78,64 @@ changelog:
 #  - artifacts: archive
 
 builds:
-  - main: main.go
+  # You can have multiple builds defined as a yaml list
+  - # Path to main.go file or main package.
+    # Notice: when used with `gomod.proxy`, this must be a package.
+    #
+    # Default: `.`.
+    main: main.go
+
+    # Binary name.
+    # Can be a path (e.g. `bin/app`) to wrap the binary in a directory.
+    #
+    # Default: Project directory name.
     binary: nanoid
-    ldflags: -s -w -X github.com/sixafter/nanoid-cli/cmd/version.version={{ .Version }} github.com/sixafter/nanoid-cli/cmd/version.gitCommitID={{ .Env.X_BUILD_COMMIT }}
+
+    # Custom ldflags.
+    #
+    # Default: '-s -w -X main.version={{.Version}} -X main.commit={{.Commit}} -X main.date={{.Date}} -X main.builtBy=goreleaser'.
+    # Templates: allowed.
+    ldflags:
+      - -s -w -X github.com/sixafter/nanoid-cli/cmd/version.version={{ .Version }} -X github.com/sixafter/nanoid-cli/cmd/version.gitCommitID={{ .Env.X_BUILD_COMMIT }}
+
+    # GOOS list to build for.
+    # For more info refer to: https://go.dev/doc/install/source#environment
+    #
+    # Default: [ 'darwin', 'linux', 'windows' ].
     goos:
-      - linux
-      - darwin
-      - windows
+      - 'linux'
+      - 'darwin'
+      - 'windows'
+
+    # GOARCH to build for.
+    # For more info refer to: https://go.dev/doc/install/source#environment
+    #
+    # Default: [ '386', 'amd64', 'arm64' ].
     goarch:
-      - amd64
-      - arm64
-    flags:
-      - -trimpath
+      - '386'
+      - 'amd64'
+      - 'arm'
+      - 'arm64'
+
+    # GOAMD64 to build when GOARCH is amd64.
+    # For more info refer to: https://go.dev/doc/install/source#environment
+    #
+    # Valid values are v1 (default), v2, v3, v4.
+    # See the Go wiki MinimumRequirements page for more information:
+    #   https://go.dev/wiki/MinimumRequirements#amd64
+    # Default: [ 'v1' ].
+    goamd64:
+      - 'v2'
+      - 'v3'
+      - 'v4'
+
+    # Set a specific go binary to use when building.
+    # It is safe to ignore this option in most cases.
+    #
+    # Default: "go".
+    # Templates: allowed.
+    # gobinary: "go1.23.3"
+
 archives:
   - id: tar
     format: tar.gz
