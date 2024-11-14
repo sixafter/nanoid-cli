@@ -66,6 +66,6 @@ jobs:
           version: latest
           args: release --clean ${{ env.flags }}
         env:
-          GITHUB_TOKEN: ${{ secrets.GHCR_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           X_BUILD_COMMIT: ${{ env.X_BUILD_COMMIT }}
           X_GITHUB_TOKEN: ${{ secrets.GHCR_TOKEN }}

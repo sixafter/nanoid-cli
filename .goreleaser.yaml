@@ -136,8 +136,11 @@ brews:
     # Default: v1.
     goamd64: v1
 
+    # Templates: allowed.
+    commit_msg_template: "Brew formula update for {{ .ProjectName }} version {{ .Tag }}"
+
     # URL which is determined by the given Token (github, gitlab or gitea).
-    url_template: "https://github.com/sixafter/nanoid-cli/releases/{{ .Tag }}/{{ .ArtifactName }}"
+    url_template: "https://github.com/sixafter/nanoid-cli/releases/download/{{ .Tag }}/{{ .ArtifactName }}"
 
     # Directory inside the repository to put the formula.
     directory: Formula
@@ -147,6 +150,10 @@ brews:
     description: "A simple, fast, and concurrent command-line tool for generating secure, URL-friendly unique string IDs using the NanoID Go implementation."
 
     license: "Apache 2.0"
+
+    # Template: allowed
+    test: |
+      assert_match "version", shell_output("#{bin}/nanoid --version")
 
     # Repository to push the generated files to.
     repository:
@@ -168,15 +175,25 @@ brews:
       # branch: main
       branch: main
 
-      pull_request:
-        enabled: true
-        base:
-          owner: sixafter
-          name: homebrew-tap
-          branch: main
-
       # Optionally a token can be provided, if it differs from the token
       # provided to GoReleaser
       #
       # Templates: allowed.
       token: "{{ .Env.X_GITHUB_TOKEN }}"
+
+      # Sets up pull request creation instead of just pushing to the given branch.
+      # Make sure the 'branch' property is different from base before enabling
+      # it.
+      pull_request:
+        # Whether to enable it or not.
+        enabled: false
+
+        # Whether to open the PR as a draft or not.
+        draft: true
+
+        # Base can also be another repository, in which case the owner and name
+        # above will be used as HEAD, allowing cross-repository pull requests.
+        base:
+          owner: sixafter
+          name: homebrew-tap
+          branch: main
