@@ -93,11 +93,13 @@ builds:
         -X github.com/sixafter/nanoid-cli/cmd.version={{ .Version }} \
         -X github.com/sixafter/nanoid-cli/cmd.buildCommit={{ .Env.X_BUILD_COMMIT }}
 archives:
-  - format: tar.gz
+  - id: tar
+    format: tar.gz
     name_template: "{{ .ProjectName }}_{{ .Version }}_{{ .Os }}_{{ .Arch }}"
     files:
       - LICENSE
-  - format: zip
+  - id: zip
+    format: zip
     name_template: "{{ .ProjectName }}_{{ .Version }}_{{ .Os }}_{{ .Arch }}"
     files:
       - LICENSE
