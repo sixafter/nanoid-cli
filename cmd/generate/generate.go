@@ -91,7 +91,7 @@ func runGenerate(cmd *cobra.Command, args []string) error {
 			return fmt.Errorf("error generating Nano ID: %w", err)
 		}
 
-		_, err = writer.WriteString(id + "\n")
+		_, err = writer.WriteString(id.String() + "\n")
 		if err != nil {
 			return fmt.Errorf("error writing Nano ID: %w", err)
 		}
