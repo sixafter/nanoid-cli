@@ -10,6 +10,7 @@ using the [NanoID](https://github.com/sixafter/nanoid) Go implementation.
 [![Go Reference](https://pkg.go.dev/badge/github.com/sixafter/nanoid-cli.svg)](https://pkg.go.dev/github.com/sixafter/nanoid-cli)
 [![Go Report Card](https://goreportcard.com/badge/github.com/sixafter/nanoid-cli)](https://goreportcard.com/report/github.com/sixafter/nanoid-cli)
 [![License: Apache 2.0](https://img.shields.io/badge/license-Apache%202.0-blue?style=flat-square)](LICENSE)
+![CodeQL](https://github.com/sixafter/nanoid-cli/actions/workflows/codeql-analysis.yaml/badge.svg)
 
 ## Features
 
