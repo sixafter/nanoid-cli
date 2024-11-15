@@ -21,7 +21,7 @@ GO_WORK_FILE := ./go.work
 export BINARY_NAME=out/nanoid
 
 .PHONY: all
-all: clean test
+all: clean build test
 
 .PHONY: build
 build: ## Build the binary executable.
