@@ -4,7 +4,7 @@ go 1.23
 
 require (
 	github.com/blang/semver/v4 v4.0.0
-	github.com/sixafter/nanoid v1.18.1
+	github.com/sixafter/nanoid v1.19.0
 	github.com/spf13/cobra v1.8.1
 	github.com/stretchr/testify v1.9.0
 )
