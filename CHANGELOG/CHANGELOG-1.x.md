@@ -18,13 +18,25 @@ Date format: `YYYY-MM-DD`
 ### Security
 
 ---
+## [1.3.0] - 2024-11-16
+
+### Added
+### Changed
+- **DEBT:** Upgraded to [sixafter/nanoid@v1.19.0](https://github.com/sixafter/nanoid/releases/tag/v1.19.0).
+
+### Deprecated
+### Removed
+### Fixed
+### Security
+
+---
 ## [1.2.0] - 2024-11-15
 
 ### Added
 ### Changed
 - **DEBT:** Added missing license header to the CodeQL analysis configuration file.
 - **DEBT:** Refactored CHANGELOG date format to `YYYY-MM-DD`.
-- **DEBT:** Upgraded to [sixafter/nanoid@v1.17.3](https://github.com/sixafter/nanoid/releases/tag/v1.18.1).
+- **DEBT:** Upgraded to [sixafter/nanoid@v1.18.1](https://github.com/sixafter/nanoid/releases/tag/v1.18.1).
 
 ### Deprecated
 ### Removed
@@ -76,7 +88,8 @@ Date format: `YYYY-MM-DD`
 ### Fixed
 ### Security
 
-[Unreleased]: https://github.com/sixafter/nanoid-cli/compare/v1.2.0..HEAD
+[Unreleased]: https://github.com/sixafter/nanoid-cli/compare/v1.3.0..HEAD
+[1.3.0]: https://github.com/sixafter/nanoid-cli/compare/v1.2.0...v1.3.0
 [1.2.0]: https://github.com/sixafter/nanoid-cli/compare/v1.1.0...v1.2.0
 [1.1.0]: https://github.com/sixafter/nanoid-cli/compare/v1.0.1...v1.1.0
 [1.0.1]: https://github.com/sixafter/nanoid-cli/compare/v1.0.0...v1.0.1
