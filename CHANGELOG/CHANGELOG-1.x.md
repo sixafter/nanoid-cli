@@ -18,6 +18,20 @@ Date format: `YYYY-MM-DD`
 ### Security
 
 ---
+## [1.6.0] - 2024-12-26
+
+### Added
+### Changed
+- **debt:** Upgraded to [sixafter/nanoid@v1.22.0](https://github.com/sixafter/nanoid/releases/tag/v1.22.0).
+- **debt:** Upgraded all Go dependencies to the latest versions.
+- **debt:** Upgraded the CI pipeline to use the new GitHub Action for SonarQube Cloud analysis.
+
+### Deprecated
+### Removed
+### Fixed
+### Security
+
+---
 ## [1.5.0] - 2024-12-07
 
 ### Added
@@ -126,7 +140,8 @@ Date format: `YYYY-MM-DD`
 ### Fixed
 ### Security
 
-[Unreleased]: https://github.com/sixafter/nanoid-cli/compare/v1.5.0...HEAD
+[Unreleased]: https://github.com/sixafter/nanoid-cli/compare/v1.6.0...HEAD
+[1.6.0]: https://github.com/sixafter/nanoid-cli/compare/v1.5.0...v1.6.0
 [1.5.0]: https://github.com/sixafter/nanoid-cli/compare/v1.4.1...v1.5.0
 [1.4.1]: https://github.com/sixafter/nanoid-cli/compare/v1.4.0...v1.4.1
 [1.4.0]: https://github.com/sixafter/nanoid-cli/compare/v1.3.0...v1.4.0
