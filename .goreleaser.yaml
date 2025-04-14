@@ -170,7 +170,7 @@ archives:
     # - `binary`
     #
     # Default: 'tar.gz'.
-    format: tar.gz
+    formats: [tar.gz]
 
     # Additional files/globs you want to add to the archive.
     #
@@ -201,7 +201,7 @@ archives:
     # - `binary`
     #
     # Default: 'tar.gz'.
-    format: zip
+    formats: [zip]
 
     # Additional files/globs you want to add to the archive.
     #
