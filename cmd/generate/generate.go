@@ -77,7 +77,7 @@ func runGenerate(cmd *cobra.Command, args []string) error {
 	// Use a buffered writer for efficient writing
 	writer := bufio.NewWriter(cmd.OutOrStdout())
 	defer func(writer *bufio.Writer) {
-		err := writer.Flush()
+		err = writer.Flush()
 		if err != nil {
 			_, _ = fmt.Fprintf(cmd.OutOrStderr(), "Error flushing writer: %v\n", err)
 		}
@@ -85,7 +85,8 @@ func runGenerate(cmd *cobra.Command, args []string) error {
 
 	// Generate and write the specified number of Nano IDs
 	for i := 0; i < count; i++ {
-		id, err := generator.New(idLength)
+		var id nanoid.ID
+		id, err = generator.New(idLength)
 		if err != nil {
 			_, _ = fmt.Fprintf(cmd.OutOrStderr(), "error generating Nano ID: %v\n", err)
 			return fmt.Errorf("error generating Nano ID: %w", err)
@@ -97,7 +98,7 @@ func runGenerate(cmd *cobra.Command, args []string) error {
 		}
 
 		if verbose {
-			_, _ = fmt.Fprintf(cmd.OutOrStderr(), "Generated ID %d: %s\n", i+1, id)
+			_, _ = fmt.Fprintf(cmd.OutOrStderr(), "\nGenerated ID %d: %s", i+1, id)
 		}
 	}
 
