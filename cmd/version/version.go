@@ -8,7 +8,6 @@ package version
 import (
 	"bufio"
 	"fmt"
-	"os"
 	"strings"
 
 	"github.com/blang/semver/v4"
@@ -30,26 +29,26 @@ func NewVersionCommand() *cobra.Command {
 			// Write the logo to the output
 			_, err := fmt.Fprint(writer, logo)
 			if err != nil {
-				_, _ = fmt.Fprintf(os.Stderr, "Error writing logo: %v\n", err)
+				_, _ = fmt.Fprintf(cmd.OutOrStderr(), "Error writing logo: %v\n", err)
 				return
 			}
 
 			_, err = fmt.Fprintf(writer, "version: %s\n", Version())
 			if err != nil {
-				_, _ = fmt.Fprintf(os.Stderr, "Error writing version: %v\n", err)
+				_, _ = fmt.Fprintf(cmd.OutOrStderr(), "Error writing version: %v\n", err)
 				return
 			}
 
 			_, err = fmt.Fprintf(writer, "commit:  %s\n", GitCommitID())
 			if err != nil {
-				_, _ = fmt.Fprintf(os.Stderr, "Error writing commit: %v\n", err)
+				_, _ = fmt.Fprintf(cmd.OutOrStderr(), "Error writing commit: %v\n", err)
 				return
 			}
 
 			defer func(writer *bufio.Writer) {
 				err = writer.Flush()
 				if err != nil {
-					_, _ = fmt.Fprintf(os.Stderr, "Error flushing writer: %v\n", err)
+					_, _ = fmt.Fprintf(cmd.OutOrStderr(), "Error flushing writer: %v\n", err)
 				}
 			}(writer)
 		},
