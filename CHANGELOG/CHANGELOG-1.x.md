@@ -18,6 +18,18 @@ Date format: `YYYY-MM-DD`
 ### Security
 
 ---
+## [1.8.1] - 2025-04-14
+
+### Added
+### Changed
+- **debt:** Address the deprecation notice for the Go Releaser `archives.format` as emitted in the release pipeline [here](https://github.com/sixafter/nanoid-cli/actions/runs/14455567265/job/40537917390#step:7:27).
+
+### Deprecated
+### Removed
+### Fixed
+### Security
+
+---
 ## [1.8.0] - 2025-04-14
 
 ### Added
@@ -182,7 +194,8 @@ Date format: `YYYY-MM-DD`
 ### Fixed
 ### Security
 
-[Unreleased]: https://github.com/sixafter/nanoid-cli/compare/v1.8.0...HEAD
+[Unreleased]: https://github.com/sixafter/nanoid-cli/compare/v1.8.1...HEAD
+[1.8.1]: https://github.com/sixafter/nanoid-cli/compare/v1.8.0...v1.8.1
 [1.8.0]: https://github.com/sixafter/nanoid-cli/compare/v1.7.1...v1.8.0
 [1.7.1]: https://github.com/sixafter/nanoid-cli/compare/v1.7.0...v1.7.1
 [1.7.0]: https://github.com/sixafter/nanoid-cli/compare/v1.6.0...v1.7.0

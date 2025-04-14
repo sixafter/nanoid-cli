@@ -41,7 +41,7 @@ cd nanoid-cli
 make build
 ```
 
-This command compiles the main.go file and produces an executable named `nanoid` in the `./out` directory.
+This command compiles the `main.go` file and produces an executable named `nanoid` in the `./out` directory.
 
 ### Homebrew
 
@@ -88,20 +88,34 @@ Output:
 1a2b3c4d5e6f1a2b3c4d5e6f1a2b3c4
 ```
 
-Generate Multiple Nano IDs:
+Generate Multiple Nano IDs with verbose output:
 
 ```sh
-nanoid generate --count 5
+nanoid generate --count 10 --verbose
 ```
 
 Output:
 
 ```sh
-V1StGXR8_Z5jdHi6B-myT
-mJzY8fK3Lq7B9sR2dT4hV
-aB3cD4E5f6G7hI8jK9lMn
-O1pQ2rS3tU4vW5xY6zA7b
-D8eF9gH0iJ1kL2mN3oP4q
+_OKhyfsfINNfokJZxyj4j
+HZUZ7sTHlLpub0rryyLsr
+_agY2S55BoYSdipGVaL4P
+FgrdoVAzzFZWS2bc42bre
+saM2-PnvwIIyt312rkGbS
+RCdECZCOr7VTkGXx5CoQo
+bCX2GTzXJ22Azn0MAYkQ3
+Fh7-65FYU9Higp7scLBht
+uC87QtpSLb8ZX5oENCHJP
+bTPg9AynQtzldZazM-wKV
+
+Start Time..............: 2025-04-14T16:30:03-05:00
+Total IDs generated.....: 10
+Total time taken........: 46.959µs
+Average time per ID.....: 4.695µs
+Throughput..............: 212951.72 IDs/sec
+Estimated output size...: 220 B
+Estimated entropy per ID: 126.00 bits
+Memory used.............: 0.32 MiB
 ```
 
 ---
