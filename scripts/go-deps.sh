@@ -17,6 +17,7 @@ fi
 # Testify
 go get -u github.com/stretchr/testify
 go get -u github.com/stretchr/testify/mock
+go get -u github.com/dustin/go-humanize
 
 # Install the Go tools.
 "${__dir}"/go-install.sh

@@ -12,6 +12,7 @@ import (
 	"runtime"
 	"time"
 
+	"github.com/dustin/go-humanize"
 	"github.com/sixafter/nanoid"
 	"github.com/spf13/cobra"
 )
@@ -98,7 +99,7 @@ func runGenerate(cmd *cobra.Command, args []string) error {
 
 	err = writer.Flush()
 	if err != nil {
-		_, _ = fmt.Fprintf(cmd.OutOrStderr(), "Error flushing writer: %v\n", err)
+		_, _ = fmt.Fprintf(cmd.ErrOrStderr(), "Error flushing writer: %v\n", err)
 	}
 
 	if verbose {
@@ -114,15 +115,15 @@ func runGenerate(cmd *cobra.Command, args []string) error {
 		estimatedEntropy := entropyPerChar * float64(idLength)
 
 		// Print stats
-		_, _ = fmt.Fprintln(cmd.OutOrStderr(), "")
-		_, _ = fmt.Fprintf(cmd.OutOrStderr(), "Start Time..............: %s\n", start.Format(time.RFC3339))
-		_, _ = fmt.Fprintf(cmd.OutOrStderr(), "Total IDs generated.....: %d\n", count)
-		_, _ = fmt.Fprintf(cmd.OutOrStderr(), "Total time taken........: %s\n", duration)
-		_, _ = fmt.Fprintf(cmd.OutOrStderr(), "Average time per ID.....: %s\n", average)
-		_, _ = fmt.Fprintf(cmd.OutOrStderr(), "Throughput..............: %.2f IDs/sec\n", throughput)
-		_, _ = fmt.Fprintf(cmd.OutOrStderr(), "Estimated output size...: %s\n", humanBytes(estimatedBytes))
-		_, _ = fmt.Fprintf(cmd.OutOrStderr(), "Estimated entropy per ID: %.2f bits\n", estimatedEntropy)
-		_, _ = fmt.Fprintf(cmd.OutOrStderr(), "Memory used.............: %.2f MiB\n", float64(memStats.Alloc)/(1024*1024))
+		_, _ = fmt.Fprintln(cmd.OutOrStdout(), "")
+		_, _ = fmt.Fprintf(cmd.OutOrStdout(), "Start Time..............: %s\n", start.Format(time.RFC3339))
+		_, _ = fmt.Fprintf(cmd.OutOrStdout(), "Total IDs generated.....: %d\n", count)
+		_, _ = fmt.Fprintf(cmd.OutOrStdout(), "Total time taken........: %s\n", duration)
+		_, _ = fmt.Fprintf(cmd.OutOrStdout(), "Average time per ID.....: %s\n", average)
+		_, _ = fmt.Fprintf(cmd.OutOrStdout(), "Throughput..............: %.2f IDs/sec\n", throughput)
+		_, _ = fmt.Fprintf(cmd.OutOrStdout(), "Estimated output size...: %s\n", humanize.Bytes(uint64(estimatedBytes)))
+		_, _ = fmt.Fprintf(cmd.OutOrStdout(), "Estimated entropy per ID: %.2f bits\n", estimatedEntropy)
+		_, _ = fmt.Fprintf(cmd.OutOrStdout(), "Memory used.............: %.2f MiB\n", float64(memStats.Alloc)/(1024*1024))
 	}
 
 	return nil
@@ -130,33 +131,20 @@ func runGenerate(cmd *cobra.Command, args []string) error {
 
 func writeError(cmd *cobra.Command, msg string, err error) error {
 	// Flush stdout if necessary
-	if w, ok := cmd.OutOrStdout().(*bufio.Writer); ok {
+	if w, ok := cmd.ErrOrStderr().(*bufio.Writer); ok {
 		_ = w.Flush()
 	}
 
-	_, _ = fmt.Fprintf(cmd.OutOrStderr(), "%s: %v", msg, err)
+	_, _ = fmt.Fprintf(cmd.ErrOrStderr(), "%s: %v", msg, err)
 	return fmt.Errorf("%s: %w", msg, err)
 }
 
 func writeString(cmd *cobra.Command, msg string) error {
 	// Flush stdout if necessary
-	if w, ok := cmd.OutOrStdout().(*bufio.Writer); ok {
+	if w, ok := cmd.ErrOrStderr().(*bufio.Writer); ok {
 		_ = w.Flush()
 	}
 
-	_, _ = fmt.Fprintf(cmd.OutOrStderr(), "%s", msg)
+	_, _ = fmt.Fprintf(cmd.ErrOrStderr(), "%s", msg)
 	return fmt.Errorf("%s", msg)
-}
-
-func humanBytes(n int) string {
-	const unit = 1024
-	if n < unit {
-		return fmt.Sprintf("%d B", n)
-	}
-	div, exp := unit, 0
-	for n/unit >= unit {
-		div *= unit
-		exp++
-	}
-	return fmt.Sprintf("%.1f %cB", float64(n)/float64(div), "KMGTPE"[exp])
 }
