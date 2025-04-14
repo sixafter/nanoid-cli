@@ -6,10 +6,14 @@
 package generate
 
 import (
+	"bufio"
 	"bytes"
+	"errors"
+	"fmt"
 	"strings"
 	"testing"
 
+	"github.com/spf13/cobra"
 	"github.com/stretchr/testify/assert"
 )
 
@@ -80,6 +84,30 @@ func TestGenerateCommand_CustomAlphabet(t *testing.T) {
 	}
 }
 
+func TestGenerateCommand_Verbose(t *testing.T) {
+	is := assert.New(t)
+
+	// Set up command
+	cmd := NewGenerateCommand()
+	cmd.SetArgs([]string{"--id-length", "30", "--count", "10", "--verbose"})
+
+	// Capture output
+	var outBuf bytes.Buffer
+	cmd.SetOut(&outBuf)
+
+	// Execute command
+	err := cmd.Execute()
+	is.NoError(err, "Expected no error on generate command with custom length")
+
+	// Verify output contains one ID of length 30
+	output := strings.TrimSpace(outBuf.String())
+
+	// Split on \n to get individual lines
+	lines := strings.Split(output, "\n")
+
+	is.Equal(19, len(lines), "Expected output to contain 19 lines (10 IDs of length 30 + 10 verbose messages)")
+}
+
 func TestGenerateCommand_ErrorOutput(t *testing.T) {
 	is := assert.New(t)
 
@@ -104,4 +132,46 @@ func TestGenerateCommand_ErrorOutput(t *testing.T) {
 	// stdout should be empty since an error occurred
 	stdoutOutput := strings.TrimSpace(outBuf.String())
 	is.NotEmpty(stdoutOutput, "Expected output showing usage.")
+}
+
+func TestGenerateCommand_WriteError(t *testing.T) {
+	is := assert.New(t)
+	var stdoutBuf, rawStderrBuf bytes.Buffer
+	stderr := bufio.NewWriter(&rawStderrBuf)
+
+	cmd := &cobra.Command{}
+	cmd.SetOut(bufio.NewWriter(&stdoutBuf))
+	cmd.SetErr(stderr)
+
+	errMsg := "test error"
+	origErr := errors.New("underlying failure")
+
+	returnedErr := writeError(cmd, errMsg, origErr)
+
+	_ = stderr.Flush()
+
+	expectedOutput := fmt.Sprintf("%s: %v", errMsg, origErr)
+	is.Contains(rawStderrBuf.String(), expectedOutput, "stderr should contain the error message")
+	is.ErrorContains(returnedErr, errMsg)
+	is.ErrorIs(returnedErr, origErr)
+}
+
+func TestGenerateCommand_WriteString(t *testing.T) {
+	is := assert.New(t)
+	var stdoutBuf, rawStderrBuf bytes.Buffer
+	stderr := bufio.NewWriter(&rawStderrBuf)
+
+	cmd := &cobra.Command{}
+	cmd.SetOut(bufio.NewWriter(&stdoutBuf))
+	cmd.SetErr(stderr)
+
+	errMsg := "test error"
+
+	returnedErr := writeString(cmd, errMsg)
+
+	_ = stderr.Flush()
+
+	expectedOutput := fmt.Sprintf("%s", errMsg)
+	is.Contains(rawStderrBuf.String(), expectedOutput, "stderr should contain the error message")
+	is.ErrorContains(returnedErr, errMsg)
 }
