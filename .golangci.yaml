@@ -1,18 +1,7 @@
 # Ref: https://golangci-lint.run/usage/configuration/
 
-issues:
-  # Independently of option `exclude` we use default exclude patterns,
-  # it can be disabled by this option.
-  # To list all excluded by default patterns execute `golangci-lint run --help`.
-  # Default: true
-  exclude-use-default: true
-
-  # Exclude certain directories from linting
-  exclude-dirs:
-    - "vendor"
-    - "third_party"
-    - "generated"
-
+# See the dedicated "version" documentation section.
+version: "2"
 
 # Options for analysis running.
 run:
@@ -51,18 +40,42 @@ run:
   allow-parallel-runners: false
 
 output:
-  sort-results: true
+  # Order to use when sorting results.
+  # Possible values: `file`, `linter`, and `severity`.
+  #
+  # If the severity values are inside the following list, they are ordered in this order:
+  #   1. error
+  #   2. warning
+  #   3. high
+  #   4. medium
+  #   5. low
+  # Either they are sorted alphabetically.
+  #
+  # Default: ["linter", "file"]
+  sort-order:
+    - linter
+    - severity
+    - file # filepath, line, and column.
+  
+linters:
+  settings:    
+    cyclop:
+      package-average: 20.0
 
-linters-settings:
-  cyclop:
-    package-average: 20.0
+    funlen:
+      lines: 500
+      statements: 350
 
-  funlen:
-    lines: 500
-    statements: 350
+    govet:
+      enable-all: true
 
-  govet:
-    enable-all: true
+    makezero:
+      always: true
 
-  makezero:
-    always: true
+  exclusions:
+    # Exclude certain directories from linting
+    paths:
+      - "vendor"
+      - "third_party"
+      - "generated"
+      

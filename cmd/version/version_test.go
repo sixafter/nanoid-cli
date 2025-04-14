@@ -58,8 +58,8 @@ func TestVersionCommand_Defaults(t *testing.T) {
 	// Verify output
 	output := strings.TrimSpace(outBuf.String())
 	lines := strings.Split(output, "\n")
-	is.Contains(lines[0], "version: v0.0.0-unset", "Expected default version")
-	is.Contains(lines[1], "commit:", "Expected empty commit message for default")
+	is.Contains(lines[6], "version: v0.0.0-unset", "Expected default version")
+	is.Contains(lines[7], "commit:", "Expected empty commit message for default")
 }
 
 func TestVersionCommand_CustomValues(t *testing.T) {
@@ -83,6 +83,6 @@ func TestVersionCommand_CustomValues(t *testing.T) {
 	// Verify output
 	output := strings.TrimSpace(outBuf.String())
 	lines := strings.Split(output, "\n")
-	is.Contains(lines[0], "version: v1.0.0-test", "Expected custom version")
-	is.Contains(lines[1], "commit: abcdef1234567890", "Expected custom commit ID")
+	is.Contains(lines[6], "version: v1.0.0-test", "Expected custom version")
+	is.Contains(lines[7], "commit:  abcdef1234567890", "Expected custom commit ID")
 }

@@ -18,6 +18,21 @@ Date format: `YYYY-MM-DD`
 ### Security
 
 ---
+## [1.8.0] - 2025-04-14
+
+### Added
+- **feature:** Added various statistics to the `generate` command output when using the `--verbose` flag.
+
+### Changed
+- **debt:** Upgraded to [sixafter/nanoid@v1.24.0](https://github.com/sixafter/nanoid/releases/tag/v1.24.0).
+- **debt:** Upgraded all dependencies to the latest versions.
+
+### Deprecated
+### Removed
+### Fixed
+### Security
+
+---
 ## [1.7.1] - 2025-03-20
 
 ### Added
@@ -167,7 +182,8 @@ Date format: `YYYY-MM-DD`
 ### Fixed
 ### Security
 
-[Unreleased]: https://github.com/sixafter/nanoid-cli/compare/v1.7.1...HEAD
+[Unreleased]: https://github.com/sixafter/nanoid-cli/compare/v1.8.0...HEAD
+[1.8.0]: https://github.com/sixafter/nanoid-cli/compare/v1.7.1...v1.8.0
 [1.7.1]: https://github.com/sixafter/nanoid-cli/compare/v1.7.0...v1.7.1
 [1.7.0]: https://github.com/sixafter/nanoid-cli/compare/v1.6.0...v1.7.0
 [1.6.0]: https://github.com/sixafter/nanoid-cli/compare/v1.5.0...v1.6.0

@@ -8,12 +8,13 @@ package version
 import (
 	"bufio"
 	"fmt"
-	"os"
 	"strings"
 
 	"github.com/blang/semver/v4"
 	"github.com/spf13/cobra"
 )
+
+const logo string = "  _   _                     ___ ____  \n | \\ | | __ _ _ __   ___   |_ _|  _ \\ \n |  \\| |/ _` | '_ \\ / _ \\   | || | | |\n | |\\  | (_| | | | | (_) |  | || |_| |\n |_| \\_|\\__,_|_| |_|\\___/  |___|____/ \n                                      \n"
 
 // NewVersionCommand creates and returns the version command
 func NewVersionCommand() *cobra.Command {
@@ -24,22 +25,30 @@ func NewVersionCommand() *cobra.Command {
 		Run: func(cmd *cobra.Command, args []string) {
 			// Use a buffered writer for efficient writing
 			writer := bufio.NewWriter(cmd.OutOrStdout())
-			_, err := writer.WriteString(fmt.Sprintf("version: %s\n", Version()))
+
+			// Write the logo to the output
+			_, err := fmt.Fprint(writer, logo)
 			if err != nil {
-				_, _ = fmt.Fprintf(os.Stderr, "Error writing version: %v\n", err)
+				_, _ = fmt.Fprintf(cmd.OutOrStderr(), "Error writing logo: %v\n", err)
 				return
 			}
 
-			_, err = writer.WriteString(fmt.Sprintf("commit: %s\n", GitCommitID()))
+			_, err = fmt.Fprintf(writer, "version: %s\n", Version())
 			if err != nil {
-				_, _ = fmt.Fprintf(os.Stderr, "Error writing commit: %v\n", err)
+				_, _ = fmt.Fprintf(cmd.OutOrStderr(), "Error writing version: %v\n", err)
+				return
+			}
+
+			_, err = fmt.Fprintf(writer, "commit:  %s\n", GitCommitID())
+			if err != nil {
+				_, _ = fmt.Fprintf(cmd.OutOrStderr(), "Error writing commit: %v\n", err)
 				return
 			}
 
 			defer func(writer *bufio.Writer) {
-				err := writer.Flush()
+				err = writer.Flush()
 				if err != nil {
-					_, _ = fmt.Fprintf(os.Stderr, "Error flushing writer: %v\n", err)
+					_, _ = fmt.Fprintf(cmd.OutOrStderr(), "Error flushing writer: %v\n", err)
 				}
 			}(writer)
 		},
