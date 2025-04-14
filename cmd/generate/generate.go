@@ -121,7 +121,7 @@ func runGenerate(cmd *cobra.Command, args []string) error {
 		_, _ = fmt.Fprintf(cmd.OutOrStdout(), "Total time taken........: %s\n", duration)
 		_, _ = fmt.Fprintf(cmd.OutOrStdout(), "Average time per ID.....: %s\n", average)
 		_, _ = fmt.Fprintf(cmd.OutOrStdout(), "Throughput..............: %.2f IDs/sec\n", throughput)
-		_, _ = fmt.Fprintf(cmd.OutOrStdout(), "Estimated output size...: %s\n", humanize.Bytes(uint64(estimatedBytes)))
+		_, _ = fmt.Fprintf(cmd.OutOrStdout(), "Estimated output size...: %s bytes\n", humanize.Bytes(uint64(estimatedBytes)))
 		_, _ = fmt.Fprintf(cmd.OutOrStdout(), "Estimated entropy per ID: %.2f bits\n", estimatedEntropy)
 		_, _ = fmt.Fprintf(cmd.OutOrStdout(), "Memory used.............: %.2f MiB\n", float64(memStats.Alloc)/(1024*1024))
 	}
