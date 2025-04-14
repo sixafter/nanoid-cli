@@ -21,6 +21,8 @@ Date format: `YYYY-MM-DD`
 ## [1.8.0] - 2025-04-14
 
 ### Added
+- **feature:** Added various statistics to the `generate` command output when using the `--verbose` flag.
+
 ### Changed
 - **debt:** Upgraded to [sixafter/nanoid@v1.24.0](https://github.com/sixafter/nanoid/releases/tag/v1.24.0).
 - **debt:** Upgraded all dependencies to the latest versions.
