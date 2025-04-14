@@ -84,6 +84,30 @@ func TestGenerateCommand_CustomAlphabet(t *testing.T) {
 	}
 }
 
+func TestGenerateCommand_Verbose(t *testing.T) {
+	is := assert.New(t)
+
+	// Set up command
+	cmd := NewGenerateCommand()
+	cmd.SetArgs([]string{"--id-length", "30", "--count", "10", "--verbose"})
+
+	// Capture output
+	var outBuf bytes.Buffer
+	cmd.SetOut(&outBuf)
+
+	// Execute command
+	err := cmd.Execute()
+	is.NoError(err, "Expected no error on generate command with custom length")
+
+	// Verify output contains one ID of length 30
+	output := strings.TrimSpace(outBuf.String())
+
+	// Split on \n to get individual lines
+	lines := strings.Split(output, "\n")
+
+	is.Equal(19, len(lines), "Expected output to contain 19 lines (10 IDs of length 30 + 10 verbose messages)")
+}
+
 func TestGenerateCommand_ErrorOutput(t *testing.T) {
 	is := assert.New(t)
 
