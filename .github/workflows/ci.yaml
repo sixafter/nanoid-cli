@@ -78,7 +78,7 @@ jobs:
           make analyze          
 
       # Ref: https://github.com/actions/cache
-      - name: Cache SonarCloud Packages
+      - name: Cache SonarQube Packages
         uses: actions/cache@v4
         with:
           path: ~/.sonar/cache
@@ -86,7 +86,7 @@ jobs:
           restore-keys: ${{ runner.os }}-sonar-
 
       # Ref: https://github.com/SonarSource/sonarqube-scan-action
-      - name: Scan with SonarCloud
+      - name: Scan with SonarQube
         uses: sonarsource/sonarqube-scan-action@v5
         with:
           projectBaseDir: ./

@@ -58,7 +58,7 @@ output:
     - file # filepath, line, and column.
   
 linters:
-  settings:    
+  settings:
     cyclop:
       package-average: 20.0
 
