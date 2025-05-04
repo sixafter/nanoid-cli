@@ -10,8 +10,8 @@ github.com/inconshreveable/mousetrap v1.1.0/go.mod h1:vpF70FUmC8bwa3OWnCshd2FqLf
 github.com/pmezard/go-difflib v1.0.0 h1:4DBwDE0NGyQoBHbLQYPwSUPoCMWR5BEzIk/f1lZbAQM=
 github.com/pmezard/go-difflib v1.0.0/go.mod h1:iKH77koFhYxTK1pcRnkKkqfTogsbg7gZNVY4sRDYZ/4=
 github.com/russross/blackfriday/v2 v2.1.0/go.mod h1:+Rmxgy9KzJVeS9/2gXHxylqXiyQDYRxCVz55jmeOWTM=
-github.com/sixafter/nanoid v1.24.0 h1:lKasHRwfaILe1rOHP2lPBj4f/XGv3qaHIFSyvq4N8S0=
-github.com/sixafter/nanoid v1.24.0/go.mod h1:0LXvRqWsqFVgZ+86n2iJ+7kfHbOvTiRne0I06mtTwXA=
+github.com/sixafter/nanoid v1.24.1 h1:j9FKTXtWDo3aaWC9UvRUdOj44aqNVjhQ/6xI8LXUKZI=
+github.com/sixafter/nanoid v1.24.1/go.mod h1:0LXvRqWsqFVgZ+86n2iJ+7kfHbOvTiRne0I06mtTwXA=
 github.com/spf13/cobra v1.9.1 h1:CXSaggrXdbHK9CF+8ywj8Amf7PBRmPCOJugH954Nnlo=
 github.com/spf13/cobra v1.9.1/go.mod h1:nDyEzZ8ogv936Cinf6g1RU9MRY64Ir93oCnqb9wxYW0=
 github.com/spf13/pflag v1.0.6 h1:jFzHGLGAlb3ruxLB8MhbI6A8+AQX/2eW4qeyNZXNp2o=
