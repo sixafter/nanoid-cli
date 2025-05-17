@@ -84,7 +84,7 @@ func runGenerate(cmd *cobra.Command, args []string) error {
 	// Generate and write the specified number of Nano IDs
 	for i := 0; i < count; i++ {
 		var id nanoid.ID
-		id, err = generator.New(idLength)
+		id, err = generator.NewWithLength(idLength)
 		if err != nil {
 			return writeError(cmd, "error generating Nano ID", err)
 		}
