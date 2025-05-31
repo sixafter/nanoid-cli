@@ -5,7 +5,7 @@ go 1.24
 require (
 	github.com/blang/semver/v4 v4.0.0
 	github.com/dustin/go-humanize v1.0.1
-	github.com/sixafter/nanoid v1.27.0
+	github.com/sixafter/nanoid v1.28.0
 	github.com/spf13/cobra v1.9.1
 	github.com/stretchr/testify v1.10.0
 )
