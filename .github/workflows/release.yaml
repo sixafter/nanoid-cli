@@ -62,6 +62,10 @@ jobs:
         run: |
           echo "X_BUILD_COMMIT=$(git rev-parse HEAD 2> /dev/null || echo 'unknown')" >> $GITHUB_ENV
 
+      # Ref: https://github.com/sigstore/cosign-installer
+      - name: Install Cosign
+        uses: sigstore/cosign-installer@v3.8.2
+
       # Ref: https://github.com/goreleaser/goreleaser-action
       - name: "Release"
         uses: goreleaser/goreleaser-action@v6
@@ -72,3 +76,6 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           X_BUILD_COMMIT: ${{ env.X_BUILD_COMMIT }}
           X_GITHUB_TOKEN: ${{ secrets.GHCR_TOKEN }}
+          COSIGN_PASSWORD: '${{ secrets.NANOID_CLI_COSIGN_PASSWORD }}'
+          COSIGN_PRIVATE_KEY: '${{ secrets.NANOID_CLI_COSIGN_PRIVATE_KEY }}'
+          COSIGN_PUBLIC_KEY: '${{ secrets.NANOID_CLI_COSIGN_PUBLIC_KEY }}'
