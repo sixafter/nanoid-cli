@@ -18,6 +18,17 @@ Date format: `YYYY-MM-DD`
 ### Security
 
 ---
+## [1.16.0] - 2025-06-14
+
+### Added
+### Changed
+### Deprecated
+### Removed
+### Fixed
+### Security
+- **risk:** Sign releases with [cosign](https://github.com/sigstore/cosign-installer).
+
+---
 ## [1.15.0] - 2025-06-13
 
 ### Added
@@ -281,7 +292,8 @@ Date format: `YYYY-MM-DD`
 ### Fixed
 ### Security
 
-[Unreleased]: https://github.com/sixafter/nanoid-cli/compare/v1.15.0...HEAD
+[Unreleased]: https://github.com/sixafter/nanoid-cli/compare/v1.16.0...HEAD
+[1.16.0]: https://github.com/sixafter/nanoid-cli/compare/v1.15.0...v1.16.0
 [1.15.0]: https://github.com/sixafter/nanoid-cli/compare/v1.14.0...v1.15.0
 [1.14.0]: https://github.com/sixafter/nanoid-cli/compare/v1.13.0...v1.14.0
 [1.13.0]: https://github.com/sixafter/nanoid-cli/compare/v1.12.0...v1.13.0

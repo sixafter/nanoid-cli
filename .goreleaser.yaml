@@ -270,10 +270,6 @@ brews:
     # Default: 6.
     goarm: '7'
 
-    goarchs:
-      - amd64
-      - arm64
-
     # IDs of the archives to use.
     # Empty means all IDs.
     ids:
