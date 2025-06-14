@@ -166,6 +166,20 @@ signs:
       - '--output-signature=${signature}'
       - '${artifact}'
 
+  - id: binaries
+    cmd: cosign
+    stdin: '{{ .Env.COSIGN_PASSWORD }}'
+    output: true
+    artifacts: archive
+    args:
+      - sign-blob
+      - --yes
+      - --key
+      - env://COSIGN_PRIVATE_KEY
+      - '--output-certificate=${certificate}'
+      - '--output-signature=${signature}'
+      - '${artifact}'
+
 # Ref: https://goreleaser.com/customization/archive/
 archives:
   - id: tar
