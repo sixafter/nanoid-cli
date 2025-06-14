@@ -32,6 +32,23 @@ using the [NanoID](https://github.com/sixafter/nanoid) Go implementation.
 - **Multiple ID Generation**: Generate multiple IDs in a single command.
 - **Verbose Mode**: Enable detailed logs during ID generation.
 
+## 🔐 Verify with Cosign
+
+Download the binary and its `.sig` file, then run:
+
+```sh
+cosign verify-blob \
+  --key https://raw.githubusercontent.com/sixafter/nanoid-cli/main/cosign.pub \
+  --signature nanoid-cli-linux-amd64.tar.gz.sig \
+  nanoid-cli-linux-amd64.tar.gz
+```
+
+If valid, Cosign will output:
+
+```shell
+Verified OK
+```
+
 ## Installation
 
 ### Clone the repository and build the executable:

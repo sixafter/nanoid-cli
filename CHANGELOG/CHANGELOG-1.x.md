@@ -11,6 +11,8 @@ Date format: `YYYY-MM-DD`
 ## [Unreleased]
 
 ### Added
+- **debt:** Added [cosign](https://github.com/sigstore/cosign-installer) signature verification steps in [README.md](../README.md).
+ 
 ### Changed
 ### Deprecated
 ### Removed
