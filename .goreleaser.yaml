@@ -148,6 +148,24 @@ builds:
     flags:
       - -trimpath
 
+checksum:
+  name_template: 'checksums.txt'
+
+signs:
+  - id: checksums
+    cmd: cosign
+    stdin: '{{ .Env.COSIGN_PASSWORD }}'
+    output: true
+    artifacts: checksum
+    args:
+      - sign-blob
+      - --yes
+      - --key
+      - env://COSIGN_PRIVATE_KEY
+      - '--output-certificate=${certificate}'
+      - '--output-signature=${signature}'
+      - '${artifact}'
+
 # Ref: https://goreleaser.com/customization/archive/
 archives:
   - id: tar
@@ -251,6 +269,10 @@ brews:
     #
     # Default: 6.
     goarm: '7'
+
+    goarchs:
+      - amd64
+      - arm64
 
     # IDs of the archives to use.
     # Empty means all IDs.
