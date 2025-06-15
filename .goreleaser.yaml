@@ -304,11 +304,6 @@ homebrew_casks:
 
     license: "Apache 2.0"
 
-    # Template: allowed
-    test: |
-      system "#{bin}/nanoid version"
-      assert_match "version", shell_output("#{bin}/nanoid --version")
-
     # Repository to push the generated files to.
     repository:
       # Repository owner.
