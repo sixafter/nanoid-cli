@@ -289,7 +289,7 @@ homebrew_casks:
     # url_template: "https://github.com/sixafter/nanoid-cli/releases/download/{{ .Tag }}/{{ .ArtifactName }}"
 
     # Directory inside the repository to put the formula.
-    directory: Formula
+    directory: Casks
 
     # Your app's homepage.
     #
