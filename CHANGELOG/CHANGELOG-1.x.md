@@ -11,8 +11,19 @@ Date format: `YYYY-MM-DD`
 ## [Unreleased]
 
 ### Added
+### Changed
+### Deprecated
+### Removed
+### Fixed
+### Security
+
+---
+## [1.18.0] - 2025-06-14
+
+### Added
 - **debt:** Added [cosign](https://github.com/sigstore/cosign-installer) signature verification steps in [README.md](../README.md).
- 
+- **debt:** Removed deprecated `brews` stanza in go-releaser workflow.
+
 ### Changed
 ### Deprecated
 ### Removed
@@ -306,7 +317,8 @@ Date format: `YYYY-MM-DD`
 ### Fixed
 ### Security
 
-[Unreleased]: https://github.com/sixafter/nanoid-cli/compare/v1.17.0...HEAD
+[Unreleased]: https://github.com/sixafter/nanoid-cli/compare/v1.18.0...HEAD
+[1.18.0]: https://github.com/sixafter/nanoid-cli/compare/v1.17.0...v1.18.0
 [1.17.0]: https://github.com/sixafter/nanoid-cli/compare/v1.16.0...v1.17.0
 [1.16.0]: https://github.com/sixafter/nanoid-cli/compare/v1.15.0...v1.16.0
 [1.15.0]: https://github.com/sixafter/nanoid-cli/compare/v1.14.0...v1.15.0
