@@ -135,8 +135,8 @@ builds:
     # version.
     #
     # Default: 6.
-    goarm:
-      - '7'
+    #goarm:
+    #  - '7'
 
     # Set a specific go binary to use when building.
     # It is safe to ignore this option in most cases.
@@ -264,8 +264,8 @@ release:
   footer: |
     **Full Changelog**: [https://github.com/sixafter/nanoid-cli/tree/main/CHANGELOG/CHANGELOG-1.x](https://github.com/sixafter/nanoid-cli/tree/main/CHANGELOG/CHANGELOG-1.x.md)
 
-# Ref: https://goreleaser.com/customization/homebrew/
-brews:
+# Ref: https://goreleaser.com/customization/homebrew_casks/
+homebrew_casks:
   # Name of the recipe
   - name: nanoid
 
@@ -277,13 +277,6 @@ brews:
     # ids:
     #  - tar
 
-    # GOARM to specify which 32-bit arm version to use if there are multiple
-    # versions from the build section. Brew formulas support only one 32-bit
-    # version.
-    #
-    # Default: 6.
-    goarm: '7'
-
     # IDs of the archives to use.
     # Empty means all IDs.
     ids:
@@ -293,13 +286,20 @@ brews:
     commit_msg_template: "Brew formula update for {{ .ProjectName }} version {{ .Tag }}"
 
     # URL which is determined by the given Token (github, gitlab or gitea).
-    # url_template: "https://github.com/sixafter/nanoid-cli/releases/download/{{ .Tag }}/{{ .ArtifactName }}"
+    url_template: "https://github.com/sixafter/nanoid-cli/releases/download/{{ .Tag }}/{{ .ArtifactName }}"
 
     # Directory inside the repository to put the formula.
     directory: Formula
 
+    # Your app's homepage.
+    #
+    # Default: inferred from global metadata.
     homepage: "https://github.com/sixafter/homebrew-nanoid-cli/"
 
+    # Your app's description.
+    #
+    # Templates: allowed.
+    # Default: inferred from global metadata.
     description: "A simple, fast, and concurrent command-line tool for generating secure, URL-friendly unique string IDs using the NanoID Go implementation."
 
     license: "Apache 2.0"
