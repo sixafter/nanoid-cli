@@ -6,6 +6,9 @@
 # Ref: https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions
 name: ci
 
+permissions:
+  contents: rea
+
 on:
   workflow_dispatch:
 
