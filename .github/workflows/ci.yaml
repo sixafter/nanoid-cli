@@ -7,7 +7,7 @@
 name: ci
 
 permissions:
-  contents: rea
+  contents: read
 
 on:
   workflow_dispatch:
