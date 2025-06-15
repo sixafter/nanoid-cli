@@ -18,17 +18,28 @@ Date format: `YYYY-MM-DD`
 ### Security
 
 ---
-## [1.18.3] - 2025-06-14
+## [1.18.4] - 2025-06-15
 
 ### Added
 ### Changed
 ### Deprecated
-- **debt:** Need to evaluate the Go Releaser deprecation of the `brews:` stanza in favor or []`homebrew_casks:`](https://goreleaser.com/customization/homebrew_casks/). Has to revert back to the `brews:` stanza due to compatibility issues.
+- **debt:** Support for both Homebrew formula and casks given Go Releaser deprecation of the [`brews:`](https://goreleaser.com/customization/homebrew_formulas/) stanza in favor of [`homebrew_casks:`](https://goreleaser.com/customization/homebrew_casks/). 
 
 ### Removed
 ### Fixed
 ### Security
 
+---
+## [1.18.3] - 2025-06-14
+
+### Added
+### Changed
+### Deprecated
+- **debt:** Need to evaluate the Go Releaser deprecation of the `brews:` stanza in favor of [`homebrew_casks:`](https://goreleaser.com/customization/homebrew_casks/). Has to revert back to the `brews:` stanza due to compatibility issues.
+
+### Removed
+### Fixed
+### Security
 
 ---
 ## [1.18.0] - 2025-06-14
@@ -330,7 +341,8 @@ Date format: `YYYY-MM-DD`
 ### Fixed
 ### Security
 
-[Unreleased]: https://github.com/sixafter/nanoid-cli/compare/v1.18.3...HEAD
+[Unreleased]: https://github.com/sixafter/nanoid-cli/compare/v1.18.4...HEAD
+[1.18.4]: https://github.com/sixafter/nanoid-cli/compare/v1.18.3...v1.18.4
 [1.18.3]: https://github.com/sixafter/nanoid-cli/compare/v1.18.0...v1.18.3
 [1.18.0]: https://github.com/sixafter/nanoid-cli/compare/v1.17.0...v1.18.0
 [1.17.0]: https://github.com/sixafter/nanoid-cli/compare/v1.16.0...v1.17.0
