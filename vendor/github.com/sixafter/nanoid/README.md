@@ -8,19 +8,20 @@
 
 ## Status
 
-### 🛠️ Build & Test
+### Build & Test
 
 [![CI](https://github.com/sixafter/nanoid/workflows/ci/badge.svg)](https://github.com/sixafter/nanoid/actions)
 [![GitHub issues](https://img.shields.io/github/issues/sixafter/nanoid)](https://github.com/sixafter/nanoid/issues)
 
-### 🚦Quality
+### Quality
 
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=six-after_nano-id&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=six-after_nano-id)
 ![CodeQL](https://github.com/sixafter/nanoid/actions/workflows/codeql-analysis.yaml/badge.svg)
 [![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=six-after_nano-id&metric=security_rating)](https://sonarcloud.io/summary/new_code?id=six-after_nano-id)
+[![OpenSSF Best Practices](https://www.bestpractices.dev/projects/10826/badge)](https://www.bestpractices.dev/projects/10826)
 [![OpenSSF Scorecard](https://api.scorecard.dev/projects/github.com/sixafter/nanoid/badge)](https://scorecard.dev/viewer/?uri=github.com/sixafter/nanoid)
 
-### 🚀 Package and Deploy
+### Package and Deploy
 
 [![Release](https://github.com/sixafter/nanoid/workflows/release/badge.svg)](https://github.com/sixafter/nanoid/actions)
 
@@ -51,6 +52,42 @@ Please see the [godoc](https://pkg.go.dev/github.com/sixafter/nanoid) for detail
   - Developers can utilize the Nano ID generator in contexts such as streaming data processing, pipelines, and other I/O-driven operations.
 
 Please see the [Nano ID CLI](https://github.com/sixafter/nanoid-cli) for a command-line interface (CLI) that uses this package to generate Nano IDs.
+
+---
+
+## Verify with Cosign
+
+Download the source archive and its .sig file from the GitHub release (e.g., nanoid-1.32.0.tar.gz and nanoid-1.32.0.tar.gz.sig ), then run:
+
+```sh
+# Replace <version> with the release version you downloaded, e.g., 1.32.0
+
+cosign verify-blob \
+  --key https://raw.githubusercontent.com/sixafter/nanoid/main/cosign.pub \
+  --signature nanoid-<version>.tar.gz.sig \
+  nanoid-<version>.tar.gz
+
+# Example with version 1.32.0:
+cosign verify-blob \
+  --key https://raw.githubusercontent.com/sixafter/nanoid/main/cosign.pub \
+  --signature nanoid-1.32.0.tar.gz.sig \
+  nanoid-1.32.0.tar.gz
+```
+
+The checksums are also signed (checksums.txt and checksums.txt.sig), verify with:
+
+```sh
+cosign verify-blob \
+  --key https://raw.githubusercontent.com/sixafter/nanoid/main/cosign.pub \
+  --signature checksums.txt.sig \
+  checksums.txt
+```
+
+If valid, Cosign will output:
+
+```shell
+Verified OK
+```
 
 ---
 
