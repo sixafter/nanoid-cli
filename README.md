@@ -65,7 +65,7 @@ This command compiles the `main.go` file and produces an executable named `nanoi
 
 ```sh
 brew tap sixafter/tap
-brew install nanoid
+brew install --cask nanoid
 ```
 
 ## Usage
