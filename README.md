@@ -68,6 +68,12 @@ brew tap sixafter/tap
 brew install --cask nanoid
 ```
 
+🔐 Note for macOS users: If you see a killed error when running nanoid, macOS may have quarantined the binary due to it being unsigned or unnotarized. To resolve:
+
+```sh
+sudo xattr -d com.apple.quarantine /opt/homebrew/bin/nanoid
+```
+
 ## Usage
 
 Run the CLI to Generate a Default Nano ID:

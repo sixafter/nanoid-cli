@@ -11,6 +11,8 @@ Date format: `YYYY-MM-DD`
 ## [Unreleased]
 
 ### Added
+- **debt:** Modified [README](../README.md) to include a note for macOS users regarding the `killed` error when running `nanoid` due to quarantine issues.
+
 ### Changed
 ### Deprecated
 ### Removed
