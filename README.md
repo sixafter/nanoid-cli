@@ -34,7 +34,11 @@ using the [NanoID](https://github.com/sixafter/nanoid) Go implementation.
 
 ## Verify with Cosign
 
-Download the binary and its `.sig` file, then run:
+We use [Cosign](https://github.com/sigstore/cosign) to sign our releases for integrity verification.
+
+To verify the integrity of the `nanoid-cli` binary, first download the target binary and its signature file from the [releases page](https://github.com/sixafter/nanoid-cli/releases) along with its `.sig` file.
+
+Then run the following command to verify the signature:
 
 ```sh
 cosign verify-blob \
@@ -66,6 +70,12 @@ This command compiles the `main.go` file and produces an executable named `nanoi
 ```sh
 brew tap sixafter/tap
 brew install --cask nanoid
+```
+
+For casks to work, you'll need curl installed. If you don't have it, you can install it with:
+
+```sh
+brew install curl
 ```
 
 🔐 Note for macOS users: If you see a killed error when running nanoid, macOS may have quarantined the binary due to it being unsigned or unnotarized. To resolve:
