@@ -11,7 +11,9 @@ Date format: `YYYY-MM-DD`
 ## [Unreleased]
 
 ### Added
-- **debt:** Modified [README](../README.md) to include a note for macOS users regarding the `killed` error when running `nanoid` due to quarantine issues.
+- **debt:** Modified [README](../README.md) to include:
+  - A note for macOS users regarding the `killed` error when running `nanoid` due to quarantine issues.
+  - Link to Cosign installation and usage instructions.
 
 ### Changed
 ### Deprecated
