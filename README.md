@@ -34,7 +34,7 @@ using the [NanoID](https://github.com/sixafter/nanoid) Go implementation.
 
 ## Verify with Cosign
 
-We use [Cosign](https://github.com/sigstore/cosign) to sign our releases for integrity verification.
+[Cosign](https://github.com/sigstore/cosign) is used to sign releases for integrity verification.
 
 To verify the integrity of the `nanoid-cli` binary, first download the target binary and its signature file from the [releases page](https://github.com/sixafter/nanoid-cli/releases) along with its `.sig` file.
 
