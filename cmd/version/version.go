@@ -10,7 +10,7 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/blang/semver/v4"
+	"github.com/sixafter/semver"
 	"github.com/spf13/cobra"
 )
 
@@ -78,5 +78,5 @@ func GitCommitID() string {
 
 // SemverVersion returns the current semantic version (semver)
 func SemverVersion() (semver.Version, error) {
-	return semver.Make(strings.TrimPrefix(Version(), Prefix))
+	return semver.Parse(strings.TrimPrefix(Version(), Prefix))
 }
