@@ -1,8 +1,3 @@
-# Copyright (c) 2024 Six After, Inc.
-#
-# This source code is licensed under the Apache 2.0 License found in the
-# LICENSE file in the root directory of this source tree.
-
 # Ref: https://golangci-lint.run/usage/configuration/
 
 # See the dedicated "version" documentation section.
@@ -39,7 +34,7 @@ run:
   timeout: 2m
   # Exit code when at least one issue was found.
   # Default: 1
-  issues-exit-code: 1
+  issues-exit-code: 0
   # Include test files or not.
   # Default: true
   tests: false
