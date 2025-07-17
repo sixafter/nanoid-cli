@@ -19,6 +19,20 @@ Date format: `YYYY-MM-DD`
 
 ---
 
+## [1.27.0] - 2025-07-16
+
+### Added
+### Changed
+- **debt:** Upgraded to [sixafter/nanodid@v1.40.0](https://github.com/sixater/nanoid/releases/tag/v1.40.0).
+- **debt:** Upgraded all Go dependencies to the latest stable versions.
+
+### Deprecated
+### Removed
+### Fixed
+### Security
+
+---
+
 ## [1.26.0] - 2025-07-16
 
 ### Added
@@ -441,7 +455,8 @@ Date format: `YYYY-MM-DD`
 ### Fixed
 ### Security
 
-[Unreleased]: https://github.com/sixafter/nanoid-cli/compare/v1.26.0...HEAD
+[Unreleased]: https://github.com/sixafter/nanoid-cli/compare/v1.27.0...HEAD
+[1.27.0]: https://github.com/sixafter/nanoid-cli/compare/v1.26.0...v1.27.0
 [1.26.0]: https://github.com/sixafter/nanoid-cli/compare/v1.25.0...v1.26.0
 [1.25.0]: https://github.com/sixafter/nanoid-cli/compare/v1.24.0...v1.25.0
 [1.24.0]: https://github.com/sixafter/nanoid-cli/compare/v1.23.0...v1.24.0
