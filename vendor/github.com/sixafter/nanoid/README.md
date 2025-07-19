@@ -42,7 +42,6 @@ Please see the [godoc](https://pkg.go.dev/github.com/sixafter/nanoid) for detail
 - **Cryptographically Secure**: Utilizes Go's `crypto/rand` and `x/crypto/chacha20` stream cypher package for generating cryptographically secure random numbers. This guarantees that the generated IDs are both unpredictable and suitable for security-sensitive applications.
     * The custom Cryptographically Secure Pseudo Random Number Generator (CSPRNG) Includes a thread-safe global `Reader` for concurrent access.
     * Up to 98% faster when using the `prng.Reader` as a source for v4 UUID generation using Google's [UUID](https://pkg.go.dev/github.com/google/uuid) package.
-    * See the benchmark results [here](x/crypto/prng/README.md#uuid-generation).
 - **Customizable**: 
   - Define your own set of characters for ID generation with a minimum length of 2 characters and maximum length of 256 characters.
   - Define your own random number generator.
@@ -57,7 +56,7 @@ Please see the [godoc](https://pkg.go.dev/github.com/sixafter/nanoid) for detail
   - The Nano ID generator satisfies the `io.Reader` interface, allowing it to be used interchangeably with any `io.Reader` implementations. 
   - Developers can utilize the Nano ID generator in contexts such as streaming data processing, pipelines, and other I/O-driven operations.
 - **FIPS‑140 Mode Compatible**: Designed to run in FIPS‑140 validated environments using only Go standard library crypto. 
-  - For FIPS‑140 compatible random number generation, use the [x/crypto/ctrdrbg](x/crypto/ctrdrbg) package.
+  - For FIPS‑140 compatible random number generation, use the [aes-ctr-drbg](https://github.com/sixafter/aes-ctr-drbg) module.
   - See [FIPS‑140.md](FIPS-140.md) for details and deployment guidance.
 
 Please see the [nanoid-cli](https://github.com/sixafter/nanoid-cli) for a command-line interface (CLI) that uses this module to generate Nano IDs.
@@ -69,9 +68,7 @@ Please see the [nanoid-cli](https://github.com/sixafter/nanoid-cli) for a comman
 [Cosign](https://github.com/sigstore/cosign) is used to sign releases for integrity verification.
 
 To verify the integrity of the `nanoid` source, first download the target version and its signature file 
-from the [releases page](https://github.com/sixafter/nanoid/releases) along with its `.sig` file; e.g., 
-`nanoid-1.32.0.tar.gz` and `nanoid-1.32.0.tar.gz.sig`. Then run the following command to verify the 
-signature:
+from the [releases page](https://github.com/sixafter/nanoid/releases) and then run the following commands:
 
 ```sh
 # Fetch the latest release tag from GitHub API (e.g., "v1.41.0")
@@ -309,9 +306,9 @@ Generated ID: A8I8K3J0QY
 
 ### Cryptographically Secure Pseudo Random Number Generator (CSPRNG)
 
-This project integrates a cryptographically secure, high-performance random number generator (CSPRNG) from [x/crypto/prng](x/crypto/prng) that can be used for UUIDv4 generation with Google’s UUID library. By replacing the default entropy source with this CSPRNG, UUIDv4 creation is significantly faster in both serial and concurrent workloads, while maintaining cryptographic quality.
+This project integrates a cryptographically secure, high-performance random number generator (CSPRNG) from [prng-chacha](https://github.com/sixafter/prng-chacha) that can be used for UUIDv4 generation with Google’s UUID library. By replacing the default entropy source with this CSPRNG, UUIDv4 creation is significantly faster in both serial and concurrent workloads, while maintaining cryptographic quality.
 
-For implementation details, benchmark results, and usage, see the CSPRNG [README](x/crypto/prng).
+For implementation details, benchmark results, and usage, see the CSPRNG [README](https://github.com/sixafter/prng-chacha).
 
 ### Buffer Pooling with `sync.Pool`
 

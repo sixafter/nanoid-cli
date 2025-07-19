@@ -34,17 +34,33 @@ using the [NanoID](https://github.com/sixafter/nanoid) Go implementation.
 
 ## Verify with Cosign
 
-We use [Cosign](https://github.com/sigstore/cosign) to sign our releases for integrity verification.
+[Cosign](https://github.com/sigstore/cosign) is used to sign releases for integrity verification.
 
-To verify the integrity of the `nanoid-cli` binary, first download the target binary and its signature file from the [releases page](https://github.com/sixafter/nanoid-cli/releases) along with its `.sig` file.
-
-Then run the following command to verify the signature:
+To verify the integrity of the `nanoid-cli` source, first download the target version and its signature file
+from the [releases page](https://github.com/sixafter/nanoid/releases) and then run the following commands:
 
 ```sh
+# Fetch the latest release tag from GitHub API (e.g., "v1.29.0")
+TAG=$(curl -s https://api.github.com/repos/sixafter/nanoid-cli/releases/latest | jq -r .tag_name)
+
+# Remove leading "v" for filenames (e.g., "v1.29.0" -> "1.29.0")
+VERSION=${TAG#v}
+
+# Verify the release tarball
 cosign verify-blob \
   --key https://raw.githubusercontent.com/sixafter/nanoid-cli/main/cosign.pub \
-  --signature nanoid-cli-linux-amd64.tar.gz.sig \
-  nanoid-cli-linux-amd64.tar.gz
+  --signature nanoid-${VERSION}.tar.gz.sig \
+  nanoid-${VERSION}.tar.gz
+
+# Download checksums.txt and its signature from the latest release assets
+curl -LO https://github.com/sixafter/nanoid-cli/releases/download/${TAG}/checksums.txt
+curl -LO https://github.com/sixafter/nanoid-cli/releases/download/${TAG}/checksums.txt.sig
+
+# Verify checksums.txt with cosign
+cosign verify-blob \
+  --key https://raw.githubusercontent.com/sixafter/nanoid-cli/main/cosign.pub \
+  --signature checksums.txt.sig \
+  checksums.txt
 ```
 
 If valid, Cosign will output:
