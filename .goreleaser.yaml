@@ -32,6 +32,24 @@ changelog:
   # Default: 'git'.
   use: github
 
+  # Format to use for commit formatting.
+  #
+  # Templates: allowed.
+  #
+  # Default:
+  #    if 'git': '{{ .SHA }} {{ .Message }}'
+  #   otherwise: '{{ .SHA }}: {{ .Message }} ({{ with .AuthorUsername }}@{{ . }}{{ else }}{{ .AuthorName }} <{{ .AuthorEmail }}>{{ end }})'.
+  #
+  # Extra template fields:
+  # - `SHA`: the commit SHA1
+  # - `Message`: the first line of the commit message, otherwise known as commit subject
+  # - `AuthorName`: the author full name (considers mailmap if 'git')
+  # - `AuthorEmail`: the author email (considers mailmap if 'git')
+  # - `AuthorUsername`: github/gitlab/gitea username - not available if 'git'
+  #
+  # Usage with 'git': Since: v2.8.
+  format: "{{.SHA}}: {{.Message}} (@{{.AuthorUsername}})"
+
   # Max commit hash length to use in the changelog.
   #
   # 0: use whatever the changelog implementation gives you
@@ -267,7 +285,7 @@ release:
   #
   # Templates: allowed.
   footer: |
-    **Full Changelog**: [https://github.com/sixafter/nanoid-cli/tree/main/CHANGELOG/CHANGELOG-1.x](https://github.com/sixafter/nanoid-cli/tree/main/CHANGELOG/CHANGELOG-1.x.md)
+    **Full Changelog**: [CHANGELOG.md](https://github.com/sixafter/nanoid-cli/tree/main/CHANGELOG/CHANGELOG-1.x.md)
 
 # Ref: https://goreleaser.com/customization/homebrew_casks/
 #homebrew_casks:
