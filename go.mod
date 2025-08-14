@@ -9,7 +9,7 @@ go 1.25
 
 require (
 	github.com/dustin/go-humanize v1.0.1
-	github.com/sixafter/nanoid v1.44.0
+	github.com/sixafter/nanoid v1.45.0
 	github.com/sixafter/semver v1.5.0
 	github.com/spf13/cobra v1.9.1
 	github.com/stretchr/testify v1.10.0

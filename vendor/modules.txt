@@ -10,8 +10,8 @@ github.com/inconshreveable/mousetrap
 # github.com/pmezard/go-difflib v1.0.0
 ## explicit
 github.com/pmezard/go-difflib/difflib
-# github.com/sixafter/nanoid v1.44.0
-## explicit; go 1.24
+# github.com/sixafter/nanoid v1.45.0
+## explicit; go 1.25
 github.com/sixafter/nanoid
 # github.com/sixafter/prng-chacha v1.2.0
 ## explicit; go 1.25
