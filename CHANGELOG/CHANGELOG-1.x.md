@@ -19,6 +19,19 @@ Date format: `YYYY-MM-DD`
 
 ---
 
+## [1.31.2] - 2025-08-16
+
+### Added
+### Changed
+### Deprecated
+### Removed
+### Fixed
+- **defect:** Corrected macOS notarization issues by updating the notarization configuration.
+
+### Security
+
+---
+
 ## [1.31.1] - 2025-08-16
 
 ### Added
@@ -523,7 +536,8 @@ Date format: `YYYY-MM-DD`
 ### Fixed
 ### Security
 
-[Unreleased]: https://github.com/sixafter/nanoid-cli/compare/v1.31.1...HEAD
+[Unreleased]: https://github.com/sixafter/nanoid-cli/compare/v1.31.2...HEAD
+[1.31.2]: https://github.com/sixafter/nanoid-cli/compare/v1.31.1...v1.31.1
 [1.31.1]: https://github.com/sixafter/nanoid-cli/compare/v1.31.0...v1.31.1
 [1.31.0]: https://github.com/sixafter/nanoid-cli/compare/v1.30.0...v1.31.0
 [1.30.0]: https://github.com/sixafter/nanoid-cli/compare/v1.29.0...v1.30.0
