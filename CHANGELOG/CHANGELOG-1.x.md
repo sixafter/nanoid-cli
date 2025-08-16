@@ -19,6 +19,18 @@ Date format: `YYYY-MM-DD`
 
 ---
 
+## [1.31.0] - 2025-08-16
+
+### Added
+### Changed
+### Deprecated
+### Removed
+### Fixed
+### Security
+- **feature:** Enable Developer ID code signing and Apple notarization for all `Darwin` artifacts, ensuring Gatekeeper compliance and removing the need to run `xattr -d com.apple.quarantine` after  installation or upgrade.
+
+---
+
 ## [1.30.0] - 2025-08-14
 
 ### Added
@@ -498,7 +510,8 @@ Date format: `YYYY-MM-DD`
 ### Fixed
 ### Security
 
-[Unreleased]: https://github.com/sixafter/nanoid-cli/compare/v1.30.0...HEAD
+[Unreleased]: https://github.com/sixafter/nanoid-cli/compare/v1.31.0...HEAD
+[1.31.0]: https://github.com/sixafter/nanoid-cli/compare/v1.30.0...v1.31.0
 [1.30.0]: https://github.com/sixafter/nanoid-cli/compare/v1.29.0...v1.30.0
 [1.29.0]: https://github.com/sixafter/nanoid-cli/compare/v1.28.0...v1.29.0
 [1.28.0]: https://github.com/sixafter/nanoid-cli/compare/v1.27.0...v1.28.0
