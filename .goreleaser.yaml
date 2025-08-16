@@ -100,7 +100,8 @@ changelog:
 # Ref: https://goreleaser.com/customization/builds/
 builds:
   # You can have multiple builds defined as a yaml list
-  - # Path to main.go file or main package.
+  - id: nanoid
+    # Path to main.go file or main package.
     # Notice: when used with `gomod.proxy`, this must be a package.
     #
     # Default: `.`.
@@ -645,3 +646,64 @@ homebrew_casks:
       #  url: 'ssh://git@github.com:sixafter/homebrew-tap.git'
       #  private_key: '{{ .Env.PRIVATE_KEY_PATH }}'
       #  ssh_command: 'ssh -i {{ .Env.KEY }} -o SomeOption=yes'
+
+notarize:
+  macos:
+    - # Whether this configuration is enabled or not.
+      #
+      # Default: false.
+      # Templates: allowed.
+      enabled: '{{ isEnvSet "SIXAFTER_MACOS_SIGN_P12" }}'
+
+      # IDs to use to filter the built binaries.
+      #
+      # Default: the project name.
+      ids:
+        - nanoid
+
+      # Before notarizing, we need to sign the binary.
+      # This block defines the configuration for doing so.
+      sign:
+        # The .p12 certificate file path or its base64'd contents.
+        #
+        # Templates: allowed.
+        certificate: "{{.Env.SIXAFTER_MACOS_SIGN_P12}}"
+
+        # The password to be used to open the certificate.
+        #
+        # Templates: allowed.
+        password: "{{.Env.SIXAFTER_MACOS_SIGN_PASSWORD}}"
+
+      # Then, we notarize the binaries.
+      #
+      # You can leave this section empty if you only want
+      # to sign the binaries (Since: v2.1).
+      notarize:
+        # The issuer ID.
+        # Its the UUID you see when creating the App Store Connect key.
+        #
+        # Templates: allowed.
+        issuer_id: "{{.Env.SIXAFTER_MACOS_NOTARY_ISSUER_ID}}"
+
+        # Key ID.
+        # You can see it in the list of App Store Connect Keys.
+        # It will also be in the ApiKey filename.
+        #
+        # Templates: allowed.
+        key_id: "{{.Env.SIXAFTER_MACOS_NOTARY_KEY_ID}}"
+
+        # The .p8 key file path or its base64'd contents.
+        #
+        # Templates: allowed.
+        key: "{{.Env.SIXAFTER_MACOS_NOTARY_KEY}}"
+
+        # Whether to wait for the notarization to finish.
+        # Not recommended, as it could take a really long time.
+        wait: true
+
+        # Timeout for the notarization.
+        # Beware of the overall `--timeout` time.
+        # This only has any effect if `wait` is true.
+        #
+        # Default: 10m.
+        timeout: 20m

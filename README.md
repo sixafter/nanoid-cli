@@ -40,10 +40,10 @@ To verify the integrity of the `nanoid-cli` source, first download the target ve
 from the [releases page](https://github.com/sixafter/nanoid/releases) and then run the following commands:
 
 ```sh
-# Fetch the latest release tag from GitHub API (e.g., "v1.29.0")
+# Fetch the latest release tag from GitHub API (e.g., "v1.31.0")
 TAG=$(curl -s https://api.github.com/repos/sixafter/nanoid-cli/releases/latest | jq -r .tag_name)
 
-# Remove leading "v" for filenames (e.g., "v1.29.0" -> "1.29.0")
+# Remove leading "v" for filenames (e.g., "v1.31.0" -> "1.31.0")
 VERSION=${TAG#v}
 
 # Verify the release tarball
