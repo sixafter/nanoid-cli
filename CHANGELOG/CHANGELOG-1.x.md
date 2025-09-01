@@ -15,8 +15,20 @@ Date format: `YYYY-MM-DD`
 ### Deprecated
 ### Removed
 ### Fixed
-- **defect:** Disabled GoReleaser pull request support.
+### Security
 
+---
+
+## [1.33.0] - 2025-09-01
+
+### Added
+### Changed
+- **defect:** Disabled GoReleaser pull request support.
+- **debt:** Upgraded to [sixafter/nanoid@v1.47.0](https://github.com/sixafter/nanoid/releases/tag/v1.47.0).
+
+### Deprecated
+### Removed
+### Fixed
 ### Security
 
 ---
@@ -27,8 +39,8 @@ Date format: `YYYY-MM-DD`
 ### Changed
 - **debt:** Upgraded dependencies to their latest stable versions.
 - **risk:** Updated copyright to reflect date range through present year.
-- **debt:** Upgraded to [sixafter/nanodid@v1.46.0](https://github.com/sixater/nanoid/releases/tag/v1.46.0).
-- 
+- **debt:** Upgraded to [sixafter/nanoid@v1.46.0](https://github.com/sixafter/nanoid/releases/tag/v1.46.0).
+
 ### Deprecated
 ### Removed
 ### Fixed
@@ -78,7 +90,7 @@ Date format: `YYYY-MM-DD`
 
 ### Added
 ### Changed
-- **debt:** Upgraded to [sixafter/nanodid@v1.45.0](https://github.com/sixater/nanoid/releases/tag/v1.45.0).
+- **debt:** Upgraded to [sixafter/nanoid@v1.45.0](https://github.com/sixafter/nanoid/releases/tag/v1.45.0).
 - **debt:** Updated to Go `1.25` to leverage the latest language features and performance improvements.
 - **debt:** Upgraded all Go dependencies to the latest stable versions.
 
@@ -93,7 +105,7 @@ Date format: `YYYY-MM-DD`
 
 ### Added
 ### Changed
-- **debt:** Upgraded to [sixafter/nanodid@v1.44.0](https://github.com/sixater/nanoid/releases/tag/v1.44.0).
+- **debt:** Upgraded to [sixafter/nanoid@v1.44.0](https://github.com/sixafter/nanoid/releases/tag/v1.44.0).
 - **debt:** Upgraded all Go dependencies to the latest stable versions.
 
 ### Deprecated
@@ -107,7 +119,7 @@ Date format: `YYYY-MM-DD`
 
 ### Added
 ### Changed
-- **debt:** Upgraded to [sixafter/nanodid@v1.40.0](https://github.com/sixater/nanoid/releases/tag/v1.40.0).
+- **debt:** Upgraded to [sixafter/nanoid@v1.40.0](https://github.com/sixafter/nanoid/releases/tag/v1.40.0).
 - **debt:** Upgraded all Go dependencies to the latest stable versions.
 
 ### Deprecated
@@ -121,7 +133,7 @@ Date format: `YYYY-MM-DD`
 
 ### Added
 ### Changed
-- **debt:** Upgraded to [sixafter/nanodid@v1.40.0](https://github.com/sixater/nanoid/releases/tag/v1.40.0).
+- **debt:** Upgraded to [sixafter/nanoid@v1.40.0](https://github.com/sixafter/nanoid/releases/tag/v1.40.0).
 - **debt:** Upgraded all Go dependencies to the latest stable versions.
 
 ### Deprecated
@@ -135,7 +147,7 @@ Date format: `YYYY-MM-DD`
 
 ### Added
 ### Changed
-- **debt:** Upgraded to [sixafter/nanodid@v1.39.0](https://github.com/sixater/nanoid/releases/tag/v1.39.0).
+- **debt:** Upgraded to [sixafter/nanoid@v1.39.0](https://github.com/sixafter/nanoid/releases/tag/v1.39.0).
 
 ### Deprecated
 ### Removed
@@ -148,7 +160,7 @@ Date format: `YYYY-MM-DD`
 
 ### Added
 ### Changed
-- **debt:** Upgraded to [sixafter/nanodid@v1.38.0](https://github.com/sixater/nanoid/releases/tag/v1.38.0).
+- **debt:** Upgraded to [sixafter/nanoid@v1.38.0](https://github.com/sixafter/nanoid/releases/tag/v1.38.0).
 
 ### Deprecated
 ### Removed
@@ -160,7 +172,7 @@ Date format: `YYYY-MM-DD`
 
 ### Added
 ### Changed
-- **debt:** Upgraded to [sixafter/nanodid@v1.37.0](https://github.com/sixater/nanoid/releases/tag/v1.37.0).
+- **debt:** Upgraded to [sixafter/nanoid@v1.37.0](https://github.com/sixafter/nanoid/releases/tag/v1.37.0).
 
 ### Deprecated
 ### Removed
@@ -553,7 +565,8 @@ Date format: `YYYY-MM-DD`
 ### Fixed
 ### Security
 
-[Unreleased]: https://github.com/sixafter/nanoid-cli/compare/v1.32.0...HEAD
+[Unreleased]: https://github.com/sixafter/nanoid-cli/compare/v1.33.0...HEAD
+[1.33.0]: https://github.com/sixafter/nanoid-cli/compare/v1.32.0...v1.33.0
 [1.32.0]: https://github.com/sixafter/nanoid-cli/compare/v1.31.2...v1.32.0
 [1.31.2]: https://github.com/sixafter/nanoid-cli/compare/v1.31.1...v1.31.1
 [1.31.1]: https://github.com/sixafter/nanoid-cli/compare/v1.31.0...v1.31.1
