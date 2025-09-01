@@ -639,7 +639,7 @@ homebrew_casks:
       # This might require a personal access token.
       pull_request:
         # Whether to enable it or not.
-        enabled: true
+        enabled: false
 
         # Whether to open the PR as a draft or not.
         draft: true

@@ -15,6 +15,8 @@ Date format: `YYYY-MM-DD`
 ### Deprecated
 ### Removed
 ### Fixed
+- **defect:** Disabled GoReleaser pull request support.
+
 ### Security
 
 ---
