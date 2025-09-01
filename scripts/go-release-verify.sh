@@ -22,5 +22,8 @@ echo "[INFO] Build version set to '${X_BUILD_VERSION}'." >&1
 X_BUILD_COMMIT=$(git rev-parse HEAD 2> /dev/null || true)
 echo "[INFO] Build commit set to '${X_BUILD_COMMIT}'." >&1
 
-export LDFLAGS="-s -w -X github.com/sixafter/nanoid-cli/cmd/version.version=${X_BUILD_VERSION} -X github.com/sixafter/nanoid-cli/cmd/version.gitCommitID=${X_BUILD_COMMIT}"
-go build -o "${BINARY_NAME}" -ldflags "${LDFLAGS}" main.go
+export X_BUILD_VERSION
+export X_BUILD_COMMIT
+
+rm -fr dist
+goreleaser --config .goreleaser.yaml release --snapshot

@@ -18,6 +18,18 @@ Date format: `YYYY-MM-DD`
 ### Security
 
 ---
+## [1.6.0] - 2025-08-14
+
+### Added
+### Changed
+- **debt:** Updated to Go `1.25` to leverage the latest language features and performance improvements.
+
+### Deprecated
+### Removed
+### Fixed
+### Security
+
+---
 ## [1.5.0] - 2025-06-28
 
 ### Added
@@ -95,7 +107,8 @@ Date format: `YYYY-MM-DD`
 ### Fixed
 ### Security
 
-[Unreleased]: https://github.com/sixafter/semver/compare/v1.5.0...HEAD
+[Unreleased]: https://github.com/sixafter/semver/compare/v1.6.0...HEAD
+[1.6.0]: https://github.com/sixafter/semver/compare/v1.5.0...v1.6.0
 [1.5.0]: https://github.com/sixafter/semver/compare/v1.4.0...v1.5.0
 [1.4.0]: https://github.com/sixafter/semver/compare/v1.3.0...v1.4.0
 [1.3.0]: https://github.com/sixafter/semver/compare/v1.2.0...v1.3.0
