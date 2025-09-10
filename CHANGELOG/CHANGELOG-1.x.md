@@ -23,7 +23,7 @@ Date format: `YYYY-MM-DD`
 
 ### Added
 ### Changed
-- **defect:** Disabled GoReleaser pull request support.
+- **debt:** Upgraded dependencies to their latest stable versions.
 - **debt:** Upgraded to [sixafter/nanoid@v1.49.0](https://github.com/sixafter/nanoid/releases/tag/v1.49.0).
 
 ### Deprecated
