@@ -7,6 +7,7 @@ package generate
 
 import (
 	"bufio"
+	"crypto/fips140"
 	"fmt"
 	"math"
 	"runtime"
@@ -47,7 +48,7 @@ If --count is not specified, one Nano ID is generated.`,
 }
 
 // runGenerate is the main execution function for the generate command
-func runGenerate(cmd *cobra.Command, args []string) error {
+func runGenerate(cmd *cobra.Command, _ []string) error {
 	// Validate id-length
 	if idLength <= 0 {
 		return writeString(cmd, "--id-length must be a positive integer")
@@ -56,6 +57,10 @@ func runGenerate(cmd *cobra.Command, args []string) error {
 	// Validate count
 	if count <= 0 {
 		return writeString(cmd, "--count must be a positive integer")
+	}
+
+	if fips140.Enabled() {
+		_, _ = fmt.Fprintln(cmd.OutOrStderr(), "FIPS 140 mode is enabled; Nano ID generation is using a FIPS 140 compliant AES-CTR DRBG source.")
 	}
 
 	// Configure the Nano ID generator using ConfigOptions

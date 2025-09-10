@@ -19,6 +19,20 @@ Date format: `YYYY-MM-DD`
 
 ---
 
+## [1.35.0] - 2025-09-10
+
+### Added
+### Changed
+- **debt:** Upgraded dependencies to their latest stable versions.
+- **debt:** Upgraded to [sixafter/nanoid@v1.50.0](https://github.com/sixafter/nanoid/releases/tag/v1.50.0).
+
+### Deprecated
+### Removed
+### Fixed
+### Security
+
+---
+
 ## [1.34.0] - 2025-09-09
 
 ### Added
@@ -579,7 +593,8 @@ Date format: `YYYY-MM-DD`
 ### Fixed
 ### Security
 
-[Unreleased]: https://github.com/sixafter/nanoid-cli/compare/v1.34.0...HEAD
+[Unreleased]: https://github.com/sixafter/nanoid-cli/compare/v1.35.0...HEAD
+[1.35.0]: https://github.com/sixafter/nanoid-cli/compare/v1.33.0...v1.34.0
 [1.34.0]: https://github.com/sixafter/nanoid-cli/compare/v1.33.0...v1.34.0
 [1.33.0]: https://github.com/sixafter/nanoid-cli/compare/v1.32.0...v1.33.0
 [1.32.0]: https://github.com/sixafter/nanoid-cli/compare/v1.31.2...v1.32.0
