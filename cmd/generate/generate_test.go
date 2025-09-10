@@ -8,6 +8,7 @@ package generate
 import (
 	"bufio"
 	"bytes"
+	"crypto/fips140"
 	"errors"
 	"fmt"
 	"strings"
@@ -174,4 +175,42 @@ func TestGenerateCommand_WriteString(t *testing.T) {
 	expectedOutput := fmt.Sprintf("%s", errMsg)
 	is.Contains(rawStderrBuf.String(), expectedOutput, "stderr should contain the error message")
 	is.ErrorContains(returnedErr, errMsg)
+}
+
+func runFIPSTest(t *testing.T, expectFIPS bool) {
+	is := assert.New(t)
+
+	if fips140.Enabled() != expectFIPS {
+		t.Skipf("FIPS mode expectation mismatch (got %v, want %v)", fips140.Enabled(), expectFIPS)
+	}
+
+	cmd := NewGenerateCommand()
+	cmd.SetArgs([]string{"--count", "1"})
+
+	var outBuf bytes.Buffer
+	var errBuf bytes.Buffer
+	cmd.SetOut(&outBuf)
+	cmd.SetErr(&errBuf)
+
+	err := cmd.Execute()
+	is.NoError(err)
+
+	stderr := errBuf.String()
+	if expectFIPS {
+		is.Contains(stderr, "FIPS 140 mode is enabled")
+	} else {
+		is.NotContains(stderr, "FIPS 140 mode is enabled")
+	}
+
+	output := strings.TrimSpace(outBuf.String())
+	is.NotEmpty(output)
+	is.Equal(21, len(output))
+}
+
+func TestFIPS140_On(t *testing.T) {
+	runFIPSTest(t, true)
+}
+
+func TestFIPS140_Off(t *testing.T) {
+	runFIPSTest(t, false)
 }
