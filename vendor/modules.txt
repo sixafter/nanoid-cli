@@ -10,16 +10,16 @@ github.com/inconshreveable/mousetrap
 # github.com/pmezard/go-difflib v1.0.0
 ## explicit
 github.com/pmezard/go-difflib/difflib
-# github.com/sixafter/aes-ctr-drbg v1.9.0
+# github.com/sixafter/aes-ctr-drbg v1.10.0
 ## explicit; go 1.25
 github.com/sixafter/aes-ctr-drbg
-# github.com/sixafter/nanoid v1.51.0
+# github.com/sixafter/nanoid v1.52.0
 ## explicit; go 1.25
 github.com/sixafter/nanoid
-# github.com/sixafter/prng-chacha v1.5.0
+# github.com/sixafter/prng-chacha v1.6.0
 ## explicit; go 1.25
 github.com/sixafter/prng-chacha
-# github.com/sixafter/semver v1.7.0
+# github.com/sixafter/semver v1.9.0
 ## explicit; go 1.25
 github.com/sixafter/semver
 # github.com/spf13/cobra v1.10.1
