@@ -1,4 +1,4 @@
-# semver
+# semver: Semantic Versioning for Go
 
 A Semantic Versioning 2.0.0 compliant parser and utility library written in Go.
 
@@ -7,6 +7,7 @@ A Semantic Versioning 2.0.0 compliant parser and utility library written in Go.
 [![Go](https://img.shields.io/github/go-mod/go-version/sixafter/semver)](https://img.shields.io/github/go-mod/go-version/sixafter/semver)
 [![Go Reference](https://pkg.go.dev/badge/github.com/sixafter/semver.svg)](https://pkg.go.dev/github.com/sixafter/semver)
 
+---
 ## Status
 
 ### Build & Test
@@ -14,7 +15,7 @@ A Semantic Versioning 2.0.0 compliant parser and utility library written in Go.
 [![CI](https://github.com/sixafter/semver/workflows/ci/badge.svg)](https://github.com/sixafter/semver/actions)
 [![GitHub issues](https://img.shields.io/github/issues/sixafter/semver)](https://github.com/sixafter/semver/issues)
 
-### 🚦Quality
+### Quality
 
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=six-after_semver&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=six-after_semver)
 ![CodeQL](https://github.com/sixafter/semver/actions/workflows/codeql-analysis.yaml/badge.svg)
@@ -22,6 +23,45 @@ A Semantic Versioning 2.0.0 compliant parser and utility library written in Go.
 ### Package and Deploy
 
 [![Release](https://github.com/sixafter/semver/workflows/release/badge.svg)](https://github.com/sixafter/semver/actions)
+
+---
+
+## Verify with Cosign
+
+[Cosign](https://github.com/sigstore/cosign) is used to sign releases for integrity verification.
+
+To verify the integrity of the release, you can use Cosign to check the signature and checksums. Follow these steps:
+
+```sh
+# Fetch the latest release tag from GitHub API (e.g., "v1.8.0")
+TAG=$(curl -s https://api.github.com/repos/sixafter/semver/releases/latest | jq -r .tag_name)
+
+# Remove leading "v" for filenames (e.g., "v1.8.0" -> "1.8.0")
+VERSION=${TAG#v}
+
+# Verify the release tarball
+cosign verify-blob \
+  --key https://raw.githubusercontent.com/sixafter/semver/main/cosign.pub \
+  --signature semver-${VERSION}.tar.gz.sig \
+  semver-${VERSION}.tar.gz
+
+# Download checksums.txt and its signature from the latest release assets
+curl -LO https://github.com/sixafter/semver/releases/download/${TAG}/checksums.txt
+curl -LO https://github.com/sixafter/semver/releases/download/${TAG}/checksums.txt.sig
+
+# Verify checksums.txt with cosign
+cosign verify-blob \
+  --key https://raw.githubusercontent.com/sixafter/semver/main/cosign.pub \
+  --signature checksums.txt.sig \
+  checksums.txt
+```
+
+If valid, Cosign will output:
+
+```shell
+Verified OK
+```
+---
 
 ## Features
 
