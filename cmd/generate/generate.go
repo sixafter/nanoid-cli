@@ -19,10 +19,21 @@ import (
 )
 
 var (
+	// idLength specifies the desired length of the generated ID.
+	// It determines how many characters the resulting identifier will contain.
 	idLength int
+
+	// alphabet defines the set of characters that can be used when generating IDs.
+	// It should contain a unique sequence of runes from which random characters are selected.
 	alphabet string
-	count    int
-	verbose  bool
+
+	// count indicates how many IDs to generate during execution.
+	// Useful for batch operations or performance benchmarking.
+	count int
+
+	// verbose controls whether detailed diagnostic or progress information is printed.
+	// When true, additional output such as timing or debug details may be displayed.
+	verbose bool
 )
 
 // NewGenerateCommand creates and returns the generate command
