@@ -39,10 +39,10 @@ using the [NanoID](https://github.com/sixafter/nanoid) Go implementation.
 To verify the integrity of the release, you can use Cosign to check the signature and checksums. Follow these steps:
 
 ```sh
-# Fetch the latest release tag from GitHub API (e.g., "v1.36.0")
+# Fetch the latest release tag from GitHub API (e.g., "v1.38.0")
 TAG=$(curl -s https://api.github.com/repos/sixafter/nanoid-cli/releases/latest | jq -r .tag_name)
 
-# Remove leading "v" for filenames (e.g., "v1.36.0" -> "1.36.0")
+# Remove leading "v" for filenames (e.g., "v1.38.0" -> "1.38.0")
 VERSION=${TAG#v}
 
 # Verify the release tarball
@@ -93,7 +93,7 @@ For casks to work, you'll need curl installed. If you don't have it, you can ins
 brew install curl
 ```
 
-🔐 Note for macOS users: If you see a killed error when running nanoid, macOS may have quarantined the binary due to it being unsigned or unnotarized. To resolve:
+**Note for macOS users:** If you see a `killed` error when running nanoid, macOS may have quarantined the binary due to it being unsigned or unnotarized. To resolve:
 
 ```sh
 sudo xattr -d com.apple.quarantine /opt/homebrew/bin/nanoid
