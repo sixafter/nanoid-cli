@@ -19,6 +19,21 @@ Date format: `YYYY-MM-DD`
 
 ---
 
+## [1.40.0] - 2025-11-07
+
+### Added
+### Changed
+- **debt:** Upgraded dependencies to their latest stable versions including releases built with Go [`1.25.4`](https://go.dev/doc/devel/release#go1.25.0).
+- **risk:** Upgraded to GoReleaser Action v4.0.0 to leverage the latest features and improvements.
+- **debt:** Updated README to reflect the new way to verify SIGSTORE signatures using Cosign bundles.
+
+### Deprecated
+### Removed
+### Fixed
+### Security
+
+---
+
 ## [1.39.0] - 2025-10-16
 
 ### Added
@@ -648,7 +663,8 @@ Date format: `YYYY-MM-DD`
 ### Fixed
 ### Security
 
-[Unreleased]: https://github.com/sixafter/nanoid-cli/compare/v1.39.0...HEAD
+[Unreleased]: https://github.com/sixafter/nanoid-cli/compare/v1.40.0...HEAD
+[1.40.0]: https://github.com/sixafter/nanoid-cli/compare/v1.39.0...v1.40.0
 [1.39.0]: https://github.com/sixafter/nanoid-cli/compare/v1.38.0...v1.39.0
 [1.38.0]: https://github.com/sixafter/nanoid-cli/compare/v1.37.0...v1.38.0
 [1.37.0]: https://github.com/sixafter/nanoid-cli/compare/v1.36.0...v1.37.0
