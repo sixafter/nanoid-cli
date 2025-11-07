@@ -18,6 +18,30 @@ Date format: `YYYY-MM-DD`
 ### Security
 
 ---
+## [1.10.3] - 2025-11-07
+
+### Added
+### Changed
+- **debt:** Upgraded CI dependencies to their latest stable versions.
+
+### Deprecated
+### Removed
+### Fixed
+### Security
+
+---
+## [1.10.1] - 2025-10-23
+
+### Added
+### Changed
+- **risk**: Added tests for `init()` function `panic` scenarios.
+
+### Deprecated
+### Removed
+### Fixed
+### Security
+
+---
 ## [1.10.0] - 2025-10-14
 
 ### Added
@@ -156,7 +180,9 @@ Date format: `YYYY-MM-DD`
 ### Fixed
 ### Security
 
-[Unreleased]: https://github.com/sixafter/semver/compare/v1.10.0...HEAD
+[Unreleased]: https://github.com/sixafter/semver/compare/v1.10.3...HEAD
+[1.10.3]: https://github.com/sixafter/semver/compare/v1.10.1...v1.10.3
+[1.10.1]: https://github.com/sixafter/semver/compare/v1.10.0...v1.10.1
 [1.10.0]: https://github.com/sixafter/semver/compare/v1.9.0...v1.10.0
 [1.9.0]: https://github.com/sixafter/semver/compare/v1.8.0...v1.9.0
 [1.8.0]: https://github.com/sixafter/semver/compare/v1.7.0...v1.8.0

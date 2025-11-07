@@ -49,9 +49,16 @@ var (
 	DefaultParser Parser
 )
 
+// add near DefaultParser
+var newParserFunc = NewParser
+
 func init() {
+	initDefaultParser()
+}
+
+func initDefaultParser() {
 	var err error
-	DefaultParser, err = NewParser()
+	DefaultParser, err = newParserFunc()
 	if err != nil {
 		panic(fmt.Sprintf("failed to initialize default parser: %v", err))
 	}

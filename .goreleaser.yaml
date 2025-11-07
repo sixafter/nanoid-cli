@@ -195,19 +195,21 @@ builds:
 checksum:
   name_template: 'checksums.txt'
 
+# Ref: https://goreleaser.com/customization/sign/
+# Ref: https://goreleaser.com/blog/cosign-v3/
 signs:
   - id: checksums
     cmd: cosign
     stdin: '{{ .Env.COSIGN_PASSWORD }}'
     output: true
     artifacts: checksum
+    signature: "${artifact}.sigstore.json"
     args:
       - sign-blob
       - --yes
       - --key
       - env://COSIGN_PRIVATE_KEY
-      - '--output-certificate=${certificate}'
-      - '--output-signature=${signature}'
+      - "--bundle=${signature}"
       - '${artifact}'
 
   - id: binaries
@@ -215,13 +217,13 @@ signs:
     stdin: '{{ .Env.COSIGN_PASSWORD }}'
     output: true
     artifacts: archive
+    signature: "${artifact}.sigstore.json"
     args:
       - sign-blob
       - --yes
       - --key
       - env://COSIGN_PRIVATE_KEY
-      - '--output-certificate=${certificate}'
-      - '--output-signature=${signature}'
+      - "--bundle=${signature}"
       - '${artifact}'
 
 # Ref: https://goreleaser.com/customization/archive/
