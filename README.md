@@ -39,46 +39,53 @@ using the [NanoID](https://github.com/sixafter/nanoid) Go implementation.
 To verify the integrity of the release, you can use Cosign to check the signature and checksums. Follow these steps:
 
 ```sh
-# Fetch the latest release tag from GitHub API (e.g., "v1.55.0")
+# Fetch the latest release tag from GitHub API (e.g., "v1.41.0")
 TAG=$(curl -s https://api.github.com/repos/sixafter/nanoid-cli/releases/latest | jq -r .tag_name)
 
-# Remove leading "v" for filenames (e.g., "v1.55.0" -> "1.55.0")
+# Remove leading "v" for filenames (e.g., "v1.41.0" -> "1.41.0")
 VERSION=${TAG#v}
 
 # ---------------------------------------------------------------------
 # Verify the source archive using Sigstore bundles
 # ---------------------------------------------------------------------
+# NOTE: Replace OS and ARCH below with the artifact you downloaded.
+# Examples:
+#   nanoid_${VERSION}_linux_amd64.tar.gz
+#   nanoid_${VERSION}_darwin_arm64.tar.gz
+#   nanoid_${VERSION}_windows_amd64.zip
 
-# Download the release tarball and its corresponding bundle
-curl -LO https://github.com/sixafter/nanoid-cli/releases/download/${TAG}/nanoid-cli-${VERSION}.tar.gz
-curl -LO https://github.com/sixafter/nanoid-cli/releases/download/${TAG}/nanoid-cli-${VERSION}.tar.gz.bundle.json
+ARTIFACT="nanoid_${VERSION}_linux_amd64.tar.gz"   # <-- change as needed
 
-# Verify the tarball with Cosign using your published public key
+# Download the release artifact and its corresponding signature bundle
+curl -LO "https://github.com/sixafter/nanoid-cli/releases/download/${TAG}/${ARTIFACT}"
+curl -LO "https://github.com/sixafter/nanoid-cli/releases/download/${TAG}/${ARTIFACT}.sigstore.json"
+
+# Verify the artifact with Cosign using your published public key
 cosign verify-blob \
-  --key https://raw.githubusercontent.com/sixafter/nanoid-cli/main/cosign.pub \
-  --bundle nanoid-${VERSION}.tar.gz.bundle.json \
-  prng-chacha-${VERSION}.tar.gz
+  --key "https://raw.githubusercontent.com/sixafter/nanoid-cli/main/cosign.pub" \
+  --bundle "${ARTIFACT}.sigstore.json" \
+  "${ARTIFACT}"
 
 # ---------------------------------------------------------------------
 # Verify the checksums manifest using Sigstore bundles
 # ---------------------------------------------------------------------
 
-# Download checksums.txt and its bundle
-curl -LO https://github.com/sixafter/nanoid-cli/releases/download/${TAG}/checksums.txt
-curl -LO https://github.com/sixafter/nanoid-cli/releases/download/${TAG}/checksums.txt.bundle.json
+# Download checksums.txt and its signature bundle
+curl -LO "https://github.com/sixafter/nanoid-cli/releases/download/${TAG}/checksums.txt"
+curl -LO "https://github.com/sixafter/nanoid-cli/releases/download/${TAG}/checksums.txt.sigstore.json"
 
 # Verify checksums.txt with Cosign using your public key
 cosign verify-blob \
-  --key https://raw.githubusercontent.com/sixafter/nanoid-cli/main/cosign.pub \
-  --bundle checksums.txt.bundle.json \
-  checksums.txt
+  --key "https://raw.githubusercontent.com/sixafter/nanoid-cli/main/cosign.pub" \
+  --bundle "checksums.txt.sigstore.json" \
+  "checksums.txt"
 
 # ---------------------------------------------------------------------
 # Confirm local artifact integrity
 # ---------------------------------------------------------------------
 
-# Compute and validate checksums locally
 shasum -a 256 -c checksums.txt
+
 ```
 
 If valid, Cosign will output:

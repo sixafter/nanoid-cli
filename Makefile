@@ -25,11 +25,11 @@ all: deps vendor update vendor tidy clean build test
 
 .PHONY: build
 build: ## Build the binary executable.
-	@./scripts/go-build.sh
+	@scripts/go-build.sh
 
 .PHONY: deps
 deps: ## Get the dependencies and vendor
-	@./scripts/go-deps.sh
+	@scripts/go-deps.sh
 
 .PHONY: test
 test: ## Execute unit tests
@@ -88,7 +88,15 @@ vuln: ## Check for vulnerabilities
 
 .PHONY: release-verify
 release-verify: ## Verify the release
-	@scripts/go-release-verify.sh
+	@scripts/verify-release.sh
+
+.PHONY: signature-verify
+signature-verify: ## Verify latest release's digital signatures with the current GOOS and GOARCH
+	@scripts/verify-sig.sh
+
+.PHONY: signature-verify-all
+signature-verify-all: ## Verify latest release's digital signatures for all supported GOOS and GOARCH combinations.
+	@scripts/verify-sig-all.sh
 
 .PHONY: help
 help: ## Display this help screen
