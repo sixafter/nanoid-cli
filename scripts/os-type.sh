@@ -152,3 +152,26 @@ function is_wsl() {
 
   return $(false)
 }
+
+function goos() {
+  case "$(detect_os)" in
+    Linux)  echo "linux" ;;
+    macOS)  echo "darwin" ;;
+    Windows) echo "windows" ;;
+    *) echo "unsupported"; return 1 ;;
+  esac
+}
+
+function goarch() {
+  local ARCH
+  ARCH=$(uname -m)
+
+  case "$ARCH" in
+    x86_64|amd64)  echo "amd64" ;;
+    arm64|aarch64) echo "arm64" ;;
+    armv6l)        echo "armv6" ;;
+    armv7l)        echo "armv7" ;;
+    i386|i686)     echo "386" ;;
+    *) echo "unsupported"; return 1 ;;
+  esac
+}

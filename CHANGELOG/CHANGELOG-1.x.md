@@ -19,6 +19,25 @@ Date format: `YYYY-MM-DD`
 
 ---
 
+## [1.41.0] - 2025-11-20
+
+### Added
+- **risk:** Added `signature-verify` make target to verify latest release's digital signatures for the current GOOS and GOARCH combination.
+- **risk:** Added `signature-verify-all` make target to verify latest release's digital signatures for all supported GOOS and GOARCH combinations.
+
+### Changed
+- **debt:** Upgraded dependencies to their latest stable versions.
+
+### Deprecated
+### Removed
+### Fixed
+- **defect:** Fixed `README.md` instructions for verifying module checksums.
+
+### Security
+- **risk:** Upgraded `golang.org/x/crypto` to `v0.45.0` to address vulnerabilities.
+
+---
+
 ## [1.40.0] - 2025-11-07
 
 ### Added
@@ -663,7 +682,8 @@ Date format: `YYYY-MM-DD`
 ### Fixed
 ### Security
 
-[Unreleased]: https://github.com/sixafter/nanoid-cli/compare/v1.40.0...HEAD
+[Unreleased]: https://github.com/sixafter/nanoid-cli/compare/v1.41.0...HEAD
+[1.41.0]: https://github.com/sixafter/nanoid-cli/compare/v1.40.0...v1.41.0
 [1.40.0]: https://github.com/sixafter/nanoid-cli/compare/v1.39.0...v1.40.0
 [1.39.0]: https://github.com/sixafter/nanoid-cli/compare/v1.38.0...v1.39.0
 [1.38.0]: https://github.com/sixafter/nanoid-cli/compare/v1.37.0...v1.38.0
