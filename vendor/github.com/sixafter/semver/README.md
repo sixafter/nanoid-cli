@@ -33,27 +33,45 @@ A Semantic Versioning 2.0.0 compliant parser and utility library written in Go.
 To verify the integrity of the release, you can use Cosign to check the signature and checksums. Follow these steps:
 
 ```sh
-# Fetch the latest release tag from GitHub API (e.g., "v1.8.0")
+# Fetch the latest release tag from GitHub API (e.g., "v1.11.0")
 TAG=$(curl -s https://api.github.com/repos/sixafter/semver/releases/latest | jq -r .tag_name)
 
-# Remove leading "v" for filenames (e.g., "v1.8.0" -> "1.8.0")
+# Remove leading "v" for filenames (e.g., "v1.11.0" -> "1.11.0")
 VERSION=${TAG#v}
 
-# Verify the release tarball
-cosign verify-blob \
-  --key https://raw.githubusercontent.com/sixafter/semver/main/cosign.pub \
-  --signature semver-${VERSION}.tar.gz.sig \
-  semver-${VERSION}.tar.gz
+# ---------------------------------------------------------------------
+# Verify the source tarball using Sigstore bundle
+# ---------------------------------------------------------------------
 
-# Download checksums.txt and its signature from the latest release assets
-curl -LO https://github.com/sixafter/semver/releases/download/${TAG}/checksums.txt
-curl -LO https://github.com/sixafter/semver/releases/download/${TAG}/checksums.txt.sig
+# Download the release tarball and its Sigstore bundle
+curl -LO "https://github.com/sixafter/semver/releases/download/${TAG}/semver-${VERSION}.tar.gz"
+curl -LO "https://github.com/sixafter/semver/releases/download/${TAG}/semver-${VERSION}.tar.gz.sigstore.json"
 
-# Verify checksums.txt with cosign
+# Verify the tarball with Cosign
 cosign verify-blob \
-  --key https://raw.githubusercontent.com/sixafter/semver/main/cosign.pub \
-  --signature checksums.txt.sig \
+  --key "https://raw.githubusercontent.com/sixafter/semver/main/cosign.pub" \
+  --bundle "semver-${VERSION}.tar.gz.sigstore.json" \
+  "semver-${VERSION}.tar.gz"
+
+# ---------------------------------------------------------------------
+# Verify checksums.txt using Sigstore bundle
+# ---------------------------------------------------------------------
+
+# Download checksums.txt and its bundle
+curl -LO "https://github.com/sixafter/semver/releases/download/${TAG}/checksums.txt"
+curl -LO "https://github.com/sixafter/semver/releases/download/${TAG}/checksums.txt.sigstore.json"
+
+# Verify the checksums.txt signature
+cosign verify-blob \
+  --key "https://raw.githubusercontent.com/sixafter/semver/main/cosign.pub" \
+  --bundle "checksums.txt.sigstore.json" \
   checksums.txt
+
+# ---------------------------------------------------------------------
+# Validate file integrity
+# ---------------------------------------------------------------------
+
+shasum -a 256 -c checksums.txt
 ```
 
 If valid, Cosign will output:

@@ -81,8 +81,15 @@ vuln: ## Check for vulnerabilities
 
 .PHONY: release-verify
 release-verify: ## Verify the release
-	rm -fr dist
-	goreleaser --config .goreleaser.yaml release --snapshot
+	@scripts/verify-release.sh
+
+.PHONY: module-verify
+mod-verify: ## Verify Go module integrity
+	@scripts/verify-mod.sh
+
+.PHONY: signature-verify
+signature-verify: ## Verify latest release's digital signatures
+	@scripts/verify-sig.sh
 
 .PHONY: help
 help: ## Display this help screen

@@ -134,4 +134,3 @@ echo "Verifying file checksum for ${ARTIFACT}..."
 
 echo
 echo "✔ Release verification succeeded."
-
