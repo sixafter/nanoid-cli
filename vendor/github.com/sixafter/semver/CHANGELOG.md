@@ -18,6 +18,23 @@ Date format: `YYYY-MM-DD`
 ### Security
 
 ---
+
+## [1.11.0] - 2025-11-20
+
+### Added
+- **risk:** Added `signature-verify` make target to verify latest release's digital signatures for the current GOOS and GOARCH combination.
+
+### Changed
+- **debt:** Upgraded dependencies to their latest stable versions.
+
+### Deprecated
+### Removed
+### Fixed
+- **defect:** Fixed `README.md` instructions for verifying module checksums.
+
+### Security
+
+---
 ## [1.10.3] - 2025-11-07
 
 ### Added
@@ -180,7 +197,8 @@ Date format: `YYYY-MM-DD`
 ### Fixed
 ### Security
 
-[Unreleased]: https://github.com/sixafter/semver/compare/v1.10.3...HEAD
+[Unreleased]: https://github.com/sixafter/semver/compare/v1.11.0...HEAD
+[1.11.0]: https://github.com/sixafter/semver/compare/v1.10.3...v1.11.0
 [1.10.3]: https://github.com/sixafter/semver/compare/v1.10.1...v1.10.3
 [1.10.1]: https://github.com/sixafter/semver/compare/v1.10.0...v1.10.1
 [1.10.0]: https://github.com/sixafter/semver/compare/v1.9.0...v1.10.0

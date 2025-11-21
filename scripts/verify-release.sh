@@ -26,4 +26,4 @@ export X_BUILD_VERSION
 export X_BUILD_COMMIT
 
 rm -fr dist
-goreleaser --config .goreleaser.yaml release --snapshot
+goreleaser --config .goreleaser.yaml release --snapshot --skip=publish
