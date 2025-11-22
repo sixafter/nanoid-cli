@@ -11,6 +11,8 @@ Date format: `YYYY-MM-DD`
 ## [Unreleased]
 
 ### Added
+- **feature:** Added VHS to [README.md](../README.md).
+
 ### Changed
 ### Deprecated
 ### Removed
