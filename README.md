@@ -18,7 +18,7 @@ using the [NanoID](https://github.com/sixafter/nanoid) Go implementation.
 [![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=six-after_nano-id-cli&metric=security_rating)](https://sonarcloud.io/summary/new_code?id=six-after_nano-id-cli)
 [![Release](https://github.com/sixafter/nanoid-cli/workflows/release/badge.svg)](https://github.com/sixafter/nanoid-cli/actions)
 
-<img alt="Welcome to NanoID CLI" src="docs/nanoid.gif" width="600" />
+<img alt="Welcome to NanoID CLI" src="docs/nanoid.gif"/>
 
 ## Features
 
