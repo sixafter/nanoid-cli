@@ -11,9 +11,22 @@ Date format: `YYYY-MM-DD`
 ## [Unreleased]
 
 ### Added
+### Changed
+### Deprecated
+### Removed
+### Fixed
+### Security
+
+---
+
+## [1.43.0] - 2025-12-13
+
+### Added
 - **feature:** Added VHS to [README.md](../README.md).
 
 ### Changed
+- **debt:** Upgraded dependencies to their latest stable versions.
+
 ### Deprecated
 ### Removed
 ### Fixed
@@ -697,7 +710,8 @@ Date format: `YYYY-MM-DD`
 ### Fixed
 ### Security
 
-[Unreleased]: https://github.com/sixafter/nanoid-cli/compare/v1.42.0...HEAD
+[Unreleased]: https://github.com/sixafter/nanoid-cli/compare/v1.43.0...HEAD
+[1.43.0]: https://github.com/sixafter/nanoid-cli/compare/v1.42.0...v1.43.0
 [1.42.0]: https://github.com/sixafter/nanoid-cli/compare/v1.41.0...v1.42.0
 [1.41.0]: https://github.com/sixafter/nanoid-cli/compare/v1.40.0...v1.41.0
 [1.40.0]: https://github.com/sixafter/nanoid-cli/compare/v1.39.0...v1.40.0
