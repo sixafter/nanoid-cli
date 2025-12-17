@@ -21,7 +21,7 @@ GO_WORK_FILE := ./go.work
 export BINARY_NAME=out/nanoid
 
 .PHONY: all
-all: deps vendor update vendor tidy clean build test
+all: deps vendor update vendor tidy clean test
 
 .PHONY: build
 build: ## Build the binary executable.
