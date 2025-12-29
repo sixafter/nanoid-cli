@@ -19,6 +19,20 @@ Date format: `YYYY-MM-DD`
 
 ---
 
+## [1.12.0] - 2025-12-17
+
+### Added
+### Changed
+- **debt:** Upgraded dependencies to their latest stable versions.
+- **risk:** Add defensive logic to module verification make target.
+
+### Deprecated
+### Removed
+### Fixed
+### Security
+
+---
+
 ## [1.11.0] - 2025-11-20
 
 ### Added
@@ -197,7 +211,8 @@ Date format: `YYYY-MM-DD`
 ### Fixed
 ### Security
 
-[Unreleased]: https://github.com/sixafter/semver/compare/v1.11.0...HEAD
+[Unreleased]: https://github.com/sixafter/semver/compare/v1.12.0...HEAD
+[1.12.0]: https://github.com/sixafter/semver/compare/v1.11.0...v1.12.0
 [1.11.0]: https://github.com/sixafter/semver/compare/v1.10.3...v1.11.0
 [1.10.3]: https://github.com/sixafter/semver/compare/v1.10.1...v1.10.3
 [1.10.1]: https://github.com/sixafter/semver/compare/v1.10.0...v1.10.1
