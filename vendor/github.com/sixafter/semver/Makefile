@@ -19,7 +19,7 @@ GO_WORK=$(GO_CMD) work
 GO_WORK_FILE := ./go.work
 
 .PHONY: all
-all: clean test
+all: deps vendor update vendor tidy clean test
 
 .PHONY: deps
 deps: ## Get the dependencies and vendor
@@ -84,8 +84,8 @@ release-verify: ## Verify the release
 	@scripts/verify-release.sh
 
 .PHONY: module-verify
-mod-verify: ## Verify Go module integrity
-	@scripts/verify-mod.sh
+module-verify: ## Verify Go module integrity
+	@TAG=$(TAG) scripts/verify-mod.sh
 
 .PHONY: signature-verify
 signature-verify: ## Verify latest release's digital signatures
