@@ -34,10 +34,10 @@ using the [NanoID](https://github.com/sixafter/nanoid) Go implementation.
 To verify the integrity of the release, you can use Cosign to check the signature and checksums. Follow these steps:
 
 ```sh
-# Fetch the latest release tag from GitHub API (e.g., "v1.41.0")
+# Fetch the latest release tag from GitHub API (e.g., "v1.45.0")
 TAG=$(curl -s https://api.github.com/repos/sixafter/nanoid-cli/releases/latest | jq -r .tag_name)
 
-# Remove leading "v" for filenames (e.g., "v1.41.0" -> "1.41.0")
+# Remove leading "v" for filenames (e.g., "v1.45.0" -> "1.45.0")
 VERSION=${TAG#v}
 
 # ---------------------------------------------------------------------
