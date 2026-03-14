@@ -13,6 +13,8 @@ Date format: `YYYY-MM-DD`
 ### Added
 ### Changed
 ### Deprecated
+- **debt:** Removed support for `windows/arm` as this architecture is no longer supported by Go Releaser.
+
 ### Removed
 ### Fixed
 ### Security

@@ -175,9 +175,9 @@ builds:
     ignore:
       - goos: 'darwin'
         goarch: '386'
-      - goos: 'freebsd'
-        goarch: 'arm'
       - goos: 'windows'
+        goarch: 'arm'
+      - goos: 'freebsd'
         goarch: 'arm'
       - goos: 'freebsd'
         goarch: 'arm64'
