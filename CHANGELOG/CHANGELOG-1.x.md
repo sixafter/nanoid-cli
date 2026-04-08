@@ -13,9 +13,23 @@ Date format: `YYYY-MM-DD`
 ### Added
 ### Changed
 ### Deprecated
+### Removed
+### Fixed
+### Security
+
+---
+
+## [1.47.1] - 2026-04-08
+
+### Added
+### Changed
+- **debt:** Upgraded to [sixafter/nanoid@v1.64.1](https://github.com/sixafter/nanoid/releases/tag/v1.64.1).
+- **debt:** Upgraded dependencies to their latest stable versions.
+
+### Deprecated
+### Removed
 - **debt:** Removed support for `windows/arm` as this architecture is no longer supported by Go Releaser.
 
-### Removed
 ### Fixed
 ### Security
 
@@ -770,7 +784,8 @@ Date format: `YYYY-MM-DD`
 ### Fixed
 ### Security
 
-[Unreleased]: https://github.com/sixafter/nanoid-cli/compare/v1.47.0...HEAD
+[Unreleased]: https://github.com/sixafter/nanoid-cli/compare/v1.47.1...HEAD
+[1.47.1]: https://github.com/sixafter/nanoid-cli/compare/v1.47.0...v1.47.1
 [1.47.0]: https://github.com/sixafter/nanoid-cli/compare/v1.46.0...v1.47.0
 [1.46.0]: https://github.com/sixafter/nanoid-cli/compare/v1.45.0...v1.46.0
 [1.45.0]: https://github.com/sixafter/nanoid-cli/compare/v1.44.0...v1.45.0
