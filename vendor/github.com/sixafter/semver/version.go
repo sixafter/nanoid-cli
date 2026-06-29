@@ -1,4 +1,4 @@
-// Copyright (c) 2024-2025 Six After, Inc
+// Copyright (c) 2024-2026 Six After, Inc
 //
 // This source code is licensed under the Apache 2.0 License found in the
 // LICENSE file in the root directory of this source tree.
@@ -47,10 +47,10 @@ type Version struct {
 var (
 	// DefaultParser is a global, shared instance of a parser. It is safe for concurrent use.
 	DefaultParser Parser
-)
 
-// add near DefaultParser
-var newParserFunc = NewParser
+	// add near DefaultParser
+	newParserFunc = NewParser
+)
 
 func init() {
 	initDefaultParser()
