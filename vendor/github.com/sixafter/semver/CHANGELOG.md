@@ -19,6 +19,20 @@ Date format: `YYYY-MM-DD`
 
 ---
 
+## [1.13.0] - 2026-08-22
+
+### Added
+### Changed
+- **debt:** Upgraded to [Go 1.27](https://go.dev/doc/go1.27).
+- **debt:** Upgraded dependencies to their latest stable versions.
+
+### Deprecated
+### Removed
+### Fixed
+### Security
+
+---
+
 ## [1.12.1] - 2026-06-29
 
 ### Added
@@ -224,7 +238,8 @@ Date format: `YYYY-MM-DD`
 ### Fixed
 ### Security
 
-[Unreleased]: https://github.com/sixafter/semver/compare/v1.12.1...HEAD
+[Unreleased]: https://github.com/sixafter/semver/compare/v1.13.0...HEAD
+[1.13.0]: https://github.com/sixafter/semver/compare/v1.12.1...v1.13.0
 [1.12.1]: https://github.com/sixafter/semver/compare/v1.12.0...v1.12.1
 [1.12.0]: https://github.com/sixafter/semver/compare/v1.11.0...v1.12.0
 [1.11.0]: https://github.com/sixafter/semver/compare/v1.10.3...v1.11.0

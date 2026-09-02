@@ -12,8 +12,8 @@ github.com/sixafter/nanoid v1.65.0 h1:hxYijATxxPiVTO7viWkRiGl5ndjjfnLQqf+B0BWzTI
 github.com/sixafter/nanoid v1.65.0/go.mod h1:d35G7hOeeLqtHpAZhpivOUXZ69HnVrMYYfy6zsgicH8=
 github.com/sixafter/prng-chacha v1.17.0 h1:jDmy8RUOHv1mMDX/vHlnj/V6nwIWIe3d1yzQBGeFW2o=
 github.com/sixafter/prng-chacha v1.17.0/go.mod h1:FmglEI3IjFfFOCFLKHpkv1jVCw6WmZI2JPnaSJAiZ5w=
-github.com/sixafter/semver v1.12.1 h1:dgA+B5zhJ+xQMuzRtC5lm6fmrZIA+WBVx0p9yvsBFl4=
-github.com/sixafter/semver v1.12.1/go.mod h1:f8opmUKKzjE6lAlQfFRjM1uiVGH6qJ3FF2CafaF+qtQ=
+github.com/sixafter/semver v1.13.0 h1:R9DUaRrGaXw5yGQGCdkGHNmM3VI2CEKX8a3ksGKUxTM=
+github.com/sixafter/semver v1.13.0/go.mod h1:Ql/w/DodZgY00w4u5KxPMt39XT7AfjyZtghWwyFZ7Mw=
 github.com/spf13/cobra v1.10.2 h1:DMTTonx5m65Ic0GOoRY2c16WCbHxOOw6xxezuLaBpcU=
 github.com/spf13/cobra v1.10.2/go.mod h1:7C1pvHqHw5A4vrJfjNwvOdzYu0Gml16OCs2GRiTUUS4=
 github.com/spf13/pflag v1.0.9/go.mod h1:McXfInJRrz4CZXVZOBLb0bTZqETkiAhM9Iw0y3An2Bg=

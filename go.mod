@@ -10,7 +10,7 @@ go 1.27
 require (
 	github.com/dustin/go-humanize v1.0.1
 	github.com/sixafter/nanoid v1.65.0
-	github.com/sixafter/semver v1.12.1
+	github.com/sixafter/semver v1.13.0
 	github.com/spf13/cobra v1.10.2
 	github.com/stretchr/testify v1.12.1
 )
