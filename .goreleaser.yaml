@@ -465,7 +465,10 @@ homebrew_casks:
 
       # Used when the domains of `url` and `homepage` differ.
       # Templates: allowed.
-      verified: "github.com/sixafter/nanoid-cli/"
+      #
+      # Deprecated by Homebrew (>= 7.0): `brew` warns on the `verified` parameter
+      # and ignores it, directing casks to the default URL verification behaviour.
+      #verified: "github.com/sixafter/nanoid-cli/"
 
       # Download strategy or format specification
       # See official Cask Cookbook for allowed values.
