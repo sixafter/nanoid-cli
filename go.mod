@@ -8,8 +8,8 @@ module github.com/sixafter/nanoid-cli
 go 1.27
 
 require (
-	github.com/dustin/go-humanize v1.0.1
-	github.com/sixafter/nanoid v1.65.1
+	github.com/dustin/go-humanize v1.1.0
+	github.com/sixafter/nanoid v1.66.0
 	github.com/sixafter/semver v1.13.0
 	github.com/spf13/cobra v1.10.2
 	github.com/stretchr/testify v1.12.1
@@ -17,10 +17,10 @@ require (
 
 require (
 	github.com/inconshreveable/mousetrap v1.1.0 // indirect
-	github.com/sixafter/aes-ctr-drbg v1.20.0 // indirect
-	github.com/sixafter/prng-chacha v1.17.1 // indirect
+	github.com/sixafter/aes-ctr-drbg v1.21.0 // indirect
+	github.com/sixafter/prng-chacha v1.18.0 // indirect
 	github.com/spf13/pflag v1.0.10 // indirect
 	go.yaml.in/yaml/v3 v3.0.5 // indirect
-	golang.org/x/crypto v0.57.0 // indirect
-	golang.org/x/sys v0.48.0 // indirect
+	golang.org/x/crypto v0.58.0 // indirect
+	golang.org/x/sys v0.49.0 // indirect
 )
